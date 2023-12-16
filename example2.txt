@@ -1,0 +1,3619 @@
+.text
+00010074 register_fini: ADDI, a5, zero, 0
+00010078           : BEQ, a5, zero, LOC_00000
+0001007c           : LUI, a0, 69632
+00010080           : ADDI, a0, a0, -1720
+00010084           : JAL, zero, atexit
+00010088  LOC_00000: JALR zero, 0(ra)
+0001008c     _start: AUIPC, gp, 20480
+00010090           : ADDI, gp, gp, -516
+00010094           : ADDI, a0, gp, 68
+00010098           : ADDI, a2, gp, 156
+0001009c           : SUB, a2, a2, a0
+000100a0           : ADDI, a1, zero, 0
+000100a4           : JAL, ra, memset
+000100a8           : AUIPC, a0, 0
+000100ac           : ADDI, a0, a0, 1276
+000100b0           : BEQ, a0, zero, LOC_00001
+000100b4           : AUIPC, a0, 4096
+000100b8           : ADDI, a0, a0, -1900
+000100bc           : JAL, ra, atexit
+000100c0  LOC_00001: JAL, ra, __libc_init_array
+000100c4           : LW a0, 0(sp)
+000100c8           : ADDI, a1, sp, 4
+000100cc           : ADDI, a2, zero, 0
+000100d0           : JAL, ra, main
+000100d4           : JAL, zero, exit
+000100d8 __do_global_dtors_aux: LBU a4, 88(gp)
+000100dc           : BNE, a4, zero, LOC_00002
+000100e0           : ADDI, sp, sp, -16
+000100e4           : SW, s0, 8(sp)
+000100e8           : ADDI, s0, a5, 0
+000100ec           : SW, ra, 12(sp)
+000100f0           : ADDI, a5, zero, 0
+000100f4           : BEQ, a5, zero, LOC_00003
+000100f8           : LUI, a0, 81920
+000100fc           : ADDI, a0, a0, 1652
+00010100           : AUIPC, ra, 0
+00010104           : JALR ra, 0(zero)
+00010108  LOC_00003: ADDI, a5, zero, 1
+0001010c           : LW ra, 12(sp)
+00010110           : SB, a5, 88(gp)
+00010114           : LW s0, 8(sp)
+00010118           : ADDI, sp, sp, 16
+0001011c           : JALR zero, 0(ra)
+00010120  LOC_00002: JALR zero, 0(ra)
+00010124 frame_dummy: ADDI, a5, zero, 0
+00010128           : BEQ, a5, zero, LOC_00004
+0001012c           : LUI, a0, 81920
+00010130           : ADDI, a1, gp, 92
+00010134           : ADDI, a0, a0, 1652
+00010138           : AUIPC, t1, 0
+0001013c           : JALR zero, 0(zero)
+00010140  LOC_00004: JALR zero, 0(ra)
+00010144       main: ADDI, sp, sp, -16
+00010148           : SW, ra, 12(sp)
+0001014c           : SW, s0, 8(sp)
+00010150           : ADDI, s0, sp, 16
+00010154           : LUI, a5, 77824
+00010158           : ADDI, a0, a5, 1632
+0001015c           : JAL, ra, puts
+00010160           : ADDI, a5, zero, 0
+00010164           : ADDI, a0, a5, 0
+00010168           : LW ra, 12(sp)
+0001016c           : LW s0, 8(sp)
+00010170           : ADDI, sp, sp, 16
+00010174           : JALR zero, 0(ra)
+00010178       exit: ADDI, sp, sp, -16
+0001017c           : ADDI, a1, zero, 0
+00010180           : SW, s0, 8(sp)
+00010184           : SW, ra, 12(sp)
+00010188           : ADDI, s0, a0, 0
+0001018c           : JAL, ra, __call_exitprocs
+00010190           : LW a0, 48(gp)
+00010194           : LW a5, 60(a0)
+00010198           : BEQ, a5, zero, LOC_00005
+0001019c           : JALR ra, 0(a5)
+000101a0  LOC_00005: ADDI, a0, s0, 0
+000101a4           : JAL, ra, _exit
+000101a8 __libc_init_array: ADDI, sp, sp, -16
+000101ac           : SW, s0, 8(sp)
+000101b0           : SW, s2, 0(sp)
+000101b4           : LUI, s0, 81920
+000101b8           : LUI, s2, 81920
+000101bc           : ADDI, a5, s0, 1656
+000101c0           : ADDI, s2, s2, 1656
+000101c4           : SUB, s2, s2, a5
+000101c8           : SW, ra, 12(sp)
+000101cc           : SW, s1, 4(sp)
+000101d0           : SRAI, s2, s2, 2
+000101d4           : BEQ, s2, zero, LOC_00006
+000101d8           : ADDI, s0, s0, 1656
+000101dc           : ADDI, s1, zero, 0
+000101e0  LOC_00007: LW a5, 0(s0)
+000101e4           : ADDI, s1, s1, 1
+000101e8           : ADDI, s0, s0, 4
+000101ec           : JALR ra, 0(a5)
+000101f0           : BNE, s2, s1, LOC_00007
+000101f4  LOC_00006: LUI, s0, 81920
+000101f8           : LUI, s2, 81920
+000101fc           : ADDI, a5, s0, 1656
+00010200           : ADDI, s2, s2, 1664
+00010204           : SUB, s2, s2, a5
+00010208           : SRAI, s2, s2, 2
+0001020c           : BEQ, s2, zero, LOC_00008
+00010210           : ADDI, s0, s0, 1656
+00010214           : ADDI, s1, zero, 0
+00010218  LOC_00009: LW a5, 0(s0)
+0001021c           : ADDI, s1, s1, 1
+00010220           : ADDI, s0, s0, 4
+00010224           : JALR ra, 0(a5)
+00010228           : BNE, s2, s1, LOC_00009
+0001022c  LOC_00008: LW ra, 12(sp)
+00010230           : LW s0, 8(sp)
+00010234           : LW s1, 4(sp)
+00010238           : LW s2, 0(sp)
+0001023c           : ADDI, sp, sp, 16
+00010240           : JALR zero, 0(ra)
+00010244     memset: ADDI, t1, zero, 15
+00010248           : ADDI, a4, a0, 0
+0001024c           : BGEU, t1, a2, LOC_0000a
+00010250           : ANDI, a5, a4, 15
+00010254           : BNE, a5, zero, LOC_0000b
+00010258  LOC_0000f: BNE, a1, zero, LOC_0000c
+0001025c  LOC_0000e: ANDI, a3, a2, -16
+00010260           : ANDI, a2, a2, 15
+00010264           : ADD, a3, a3, a4
+00010268  LOC_0000d: SW, a1, 0(a4)
+0001026c           : SW, a1, 4(a4)
+00010270           : SW, a1, 8(a4)
+00010274           : SW, a1, 12(a4)
+00010278           : ADDI, a4, a4, 16
+0001027c           : BLTU, a4, a3, LOC_0000d
+00010280           : BNE, a2, zero, LOC_0000a
+00010284           : JALR zero, 0(ra)
+00010288  LOC_0000a: SUB, a3, t1, a2
+0001028c           : SLLI, a3, a3, 2
+00010290           : AUIPC, t0, 0
+00010294           : ADD, a3, a3, t0
+00010298           : JALR zero, 12(a3)
+0001029c           : SB, a1, 14(a4)
+000102a0           : SB, a1, 13(a4)
+000102a4           : SB, a1, 12(a4)
+000102a8           : SB, a1, 11(a4)
+000102ac           : SB, a1, 10(a4)
+000102b0           : SB, a1, 9(a4)
+000102b4           : SB, a1, 8(a4)
+000102b8           : SB, a1, 7(a4)
+000102bc           : SB, a1, 6(a4)
+000102c0           : SB, a1, 5(a4)
+000102c4           : SB, a1, 4(a4)
+000102c8           : SB, a1, 3(a4)
+000102cc           : SB, a1, 2(a4)
+000102d0           : SB, a1, 1(a4)
+000102d4           : SB, a1, 0(a4)
+000102d8           : JALR zero, 0(ra)
+000102dc  LOC_0000c: ANDI, a1, a1, 255
+000102e0           : SLLI, a3, a1, 8
+000102e4           : OR, a1, a1, a3
+000102e8           : SLLI, a3, a1, 16
+000102ec           : OR, a1, a1, a3
+000102f0           : JAL, zero, LOC_0000e
+000102f4  LOC_0000b: SLLI, a3, a5, 2
+000102f8           : AUIPC, t0, 0
+000102fc           : ADD, a3, a3, t0
+00010300           : ADDI, t0, ra, 0
+00010304           : JALR ra, -96(a3)
+00010308           : ADDI, ra, t0, 0
+0001030c           : ADDI, a5, a5, -16
+00010310           : SUB, a4, a4, a5
+00010314           : ADD, a2, a2, a5
+00010318           : BGEU, t1, a2, LOC_0000a
+0001031c           : JAL, zero, LOC_0000f
+00010320    _puts_r: ADDI, sp, sp, -64
+00010324           : SW, s0, 56(sp)
+00010328           : ADDI, s0, a0, 0
+0001032c           : ADDI, a0, a1, 0
+00010330           : SW, s1, 52(sp)
+00010334           : SW, ra, 60(sp)
+00010338           : ADDI, s1, a1, 0
+0001033c           : JAL, ra, strlen
+00010340           : LUI, a5, 77824
+00010344           : ADDI, a5, a5, 1648
+00010348           : SW, a5, 40(sp)
+0001034c           : ADDI, a5, zero, 1
+00010350           : SW, a5, 44(sp)
+00010354           : LW a4, 56(s0)
+00010358           : ADDI, a5, sp, 32
+0001035c           : ADDI, a3, a0, 1
+00010360           : SW, a5, 20(sp)
+00010364           : ADDI, a5, zero, 2
+00010368           : SW, s1, 32(sp)
+0001036c           : SW, a0, 36(sp)
+00010370           : SW, a3, 28(sp)
+00010374           : SW, a5, 24(sp)
+00010378           : LW a1, 8(s0)
+0001037c           : BEQ, a4, zero, LOC_00010
+00010380  LOC_00012: LH a5, 12(a1)
+00010384           : SLLI, a4, a5, 18
+00010388           : BLT, a4, zero, LOC_00011
+0001038c           : LW a4, 100(a1)
+00010390           : LUI, a3, 8192
+00010394           : OR, a5, a5, a3
+00010398           : LUI, a3, -8192
+0001039c           : ADDI, a3, a3, -1
+000103a0           : AND, a4, a4, a3
+000103a4           : SH, a5, 12(a1)
+000103a8           : SW, a4, 100(a1)
+000103ac  LOC_00011: ADDI, a2, sp, 20
+000103b0           : ADDI, a0, s0, 0
+000103b4           : JAL, ra, __sfvwrite_r
+000103b8           : LW ra, 60(sp)
+000103bc           : LW s0, 56(sp)
+000103c0           : SLTU, a0, zero, a0
+000103c4           : SUB, a0, zero, a0
+000103c8           : LW s1, 52(sp)
+000103cc           : ORI, a0, a0, 10
+000103d0           : ADDI, sp, sp, 64
+000103d4           : JALR zero, 0(ra)
+000103d8  LOC_00010: ADDI, a0, s0, 0
+000103dc           : SW, a1, 12(sp)
+000103e0           : JAL, ra, __sinit
+000103e4           : LW a1, 12(sp)
+000103e8           : JAL, zero, LOC_00012
+000103ec       puts: ADDI, a1, a0, 0
+000103f0           : LW a0, 56(gp)
+000103f4           : JAL, zero, _puts_r
+000103f8     strlen: ANDI, a5, a0, 3
+000103fc           : ADDI, a4, a0, 0
+00010400           : BNE, a5, zero, LOC_00013
+00010404  LOC_00017: LUI, a3, 2139062272
+00010408           : ADDI, a3, a3, -129
+0001040c           : ADDI, a1, zero, -1
+00010410  LOC_00014: LW a2, 0(a4)
+00010414           : ADDI, a4, a4, 4
+00010418           : AND, a5, a2, a3
+0001041c           : ADD, a5, a5, a3
+00010420           : OR, a5, a5, a2
+00010424           : OR, a5, a5, a3
+00010428           : BEQ, a5, a1, LOC_00014
+0001042c           : LBU a3, -4(a4)
+00010430           : LBU a2, -3(a4)
+00010434           : LBU a5, -2(a4)
+00010438           : SUB, a4, a4, a0
+0001043c           : BEQ, a3, zero, LOC_00015
+00010440           : BEQ, a2, zero, LOC_00016
+00010444           : SLTU, a0, zero, a5
+00010448           : ADD, a0, a0, a4
+0001044c           : ADDI, a0, a0, -2
+00010450           : JALR zero, 0(ra)
+00010454  LOC_00018: BEQ, a3, zero, LOC_00017
+00010458  LOC_00013: LBU a5, 0(a4)
+0001045c           : ADDI, a4, a4, 1
+00010460           : ANDI, a3, a4, 3
+00010464           : BNE, a5, zero, LOC_00018
+00010468           : SUB, a4, a4, a0
+0001046c           : ADDI, a0, a4, -1
+00010470           : JALR zero, 0(ra)
+00010474  LOC_00016: ADDI, a0, a4, -3
+00010478           : JALR zero, 0(ra)
+0001047c  LOC_00015: ADDI, a0, a4, -4
+00010480           : JALR zero, 0(ra)
+00010484 __call_exitprocs: ADDI, sp, sp, -48
+00010488           : SW, s4, 24(sp)
+0001048c           : LW s4, 48(gp)
+00010490           : SW, s2, 32(sp)
+00010494           : SW, ra, 44(sp)
+00010498           : LW s2, 328(s4)
+0001049c           : SW, s0, 40(sp)
+000104a0           : SW, s1, 36(sp)
+000104a4           : SW, s3, 28(sp)
+000104a8           : SW, s5, 20(sp)
+000104ac           : SW, s6, 16(sp)
+000104b0           : SW, s7, 12(sp)
+000104b4           : SW, s8, 8(sp)
+000104b8           : BEQ, s2, zero, LOC_00019
+000104bc           : ADDI, s6, a0, 0
+000104c0           : ADDI, s7, a1, 0
+000104c4           : ADDI, s5, zero, 1
+000104c8           : ADDI, s3, zero, -1
+000104cc  LOC_00020: LW s1, 4(s2)
+000104d0           : ADDI, s0, s1, -1
+000104d4           : BLT, s0, zero, LOC_00019
+000104d8           : SLLI, s1, s1, 2
+000104dc           : ADD, s1, s2, s1
+000104e0  LOC_0001b: BEQ, s7, zero, LOC_0001a
+000104e4           : LW a5, 260(s1)
+000104e8           : BEQ, a5, s7, LOC_0001a
+000104ec  LOC_0001d: ADDI, s0, s0, -1
+000104f0           : ADDI, s1, s1, -4
+000104f4           : BNE, s0, s3, LOC_0001b
+000104f8  LOC_00019: LW ra, 44(sp)
+000104fc           : LW s0, 40(sp)
+00010500           : LW s1, 36(sp)
+00010504           : LW s2, 32(sp)
+00010508           : LW s3, 28(sp)
+0001050c           : LW s4, 24(sp)
+00010510           : LW s5, 20(sp)
+00010514           : LW s6, 16(sp)
+00010518           : LW s7, 12(sp)
+0001051c           : LW s8, 8(sp)
+00010520           : ADDI, sp, sp, 48
+00010524           : JALR zero, 0(ra)
+00010528  LOC_0001a: LW a5, 4(s2)
+0001052c           : LW a3, 4(s1)
+00010530           : ADDI, a5, a5, -1
+00010534           : BEQ, a5, s0, LOC_0001c
+00010538           : SW, zero, 4(s1)
+0001053c  LOC_00023: BEQ, a3, zero, LOC_0001d
+00010540           : LW a5, 392(s2)
+00010544           : SLL, a4, s5, s0
+00010548           : LW s8, 4(s2)
+0001054c           : AND, a5, a4, a5
+00010550           : BNE, a5, zero, LOC_0001e
+00010554           : JALR ra, 0(a3)
+00010558  LOC_00022: LW a4, 4(s2)
+0001055c           : LW a5, 328(s4)
+00010560           : BNE, a4, s8, LOC_0001f
+00010564           : BEQ, a5, s2, LOC_0001d
+00010568  LOC_0001f: BEQ, a5, zero, LOC_00019
+0001056c           : ADDI, s2, a5, 0
+00010570           : JAL, zero, LOC_00020
+00010574  LOC_0001e: LW a5, 396(s2)
+00010578           : LW a1, 132(s1)
+0001057c           : AND, a4, a4, a5
+00010580           : BNE, a4, zero, LOC_00021
+00010584           : ADDI, a0, s6, 0
+00010588           : JALR ra, 0(a3)
+0001058c           : JAL, zero, LOC_00022
+00010590  LOC_0001c: SW, s0, 4(s2)
+00010594           : JAL, zero, LOC_00023
+00010598  LOC_00021: ADDI, a0, a1, 0
+0001059c           : JALR ra, 0(a3)
+000105a0           : JAL, zero, LOC_00022
+000105a4     atexit: ADDI, a1, a0, 0
+000105a8           : ADDI, a3, zero, 0
+000105ac           : ADDI, a2, zero, 0
+000105b0           : ADDI, a0, zero, 0
+000105b4           : JAL, zero, __register_exitproc
+000105b8  __fp_lock: ADDI, a0, zero, 0
+000105bc           : JALR zero, 0(ra)
+000105c0 _cleanup_r: LUI, a1, 73728
+000105c4           : ADDI, a1, a1, 1256
+000105c8           : JAL, zero, _fwalk_reent
+000105cc __fp_unlock: ADDI, a0, zero, 0
+000105d0           : JALR zero, 0(ra)
+000105d4 __sinit.part.0: ADDI, sp, sp, -32
+000105d8           : LUI, a5, 65536
+000105dc           : SW, ra, 28(sp)
+000105e0           : SW, s0, 24(sp)
+000105e4           : SW, s1, 20(sp)
+000105e8           : SW, s2, 16(sp)
+000105ec           : SW, s3, 12(sp)
+000105f0           : SW, s4, 8(sp)
+000105f4           : SW, s5, 4(sp)
+000105f8           : SW, s6, 0(sp)
+000105fc           : LW s0, 4(a0)
+00010600           : ADDI, a5, a5, 1472
+00010604           : SW, a5, 60(a0)
+00010608           : ADDI, a4, a0, 748
+0001060c           : ADDI, a5, zero, 3
+00010610           : SW, a4, 744(a0)
+00010614           : SW, a5, 740(a0)
+00010618           : SW, zero, 736(a0)
+0001061c           : ADDI, a5, zero, 4
+00010620           : ADDI, s2, a0, 0
+00010624           : SW, a5, 12(s0)
+00010628           : ADDI, a2, zero, 8
+0001062c           : ADDI, a1, zero, 0
+00010630           : SW, zero, 100(s0)
+00010634           : SW, zero, 0(s0)
+00010638           : SW, zero, 4(s0)
+0001063c           : SW, zero, 8(s0)
+00010640           : SW, zero, 16(s0)
+00010644           : SW, zero, 20(s0)
+00010648           : SW, zero, 24(s0)
+0001064c           : ADDI, a0, s0, 92
+00010650           : JAL, ra, memset
+00010654           : LUI, s6, 73728
+00010658           : LW s1, 8(s2)
+0001065c           : LUI, s5, 73728
+00010660           : LUI, s4, 73728
+00010664           : LUI, s3, 73728
+00010668           : ADDI, s6, s6, 8
+0001066c           : ADDI, s5, s5, 108
+00010670           : ADDI, s4, s4, 244
+00010674           : ADDI, s3, s3, 348
+00010678           : LUI, a5, 65536
+0001067c           : SW, s6, 32(s0)
+00010680           : SW, s5, 36(s0)
+00010684           : SW, s4, 40(s0)
+00010688           : SW, s3, 44(s0)
+0001068c           : SW, s0, 28(s0)
+00010690           : ADDI, a5, a5, 9
+00010694           : SW, a5, 12(s1)
+00010698           : ADDI, a2, zero, 8
+0001069c           : ADDI, a1, zero, 0
+000106a0           : SW, zero, 100(s1)
+000106a4           : SW, zero, 0(s1)
+000106a8           : SW, zero, 4(s1)
+000106ac           : SW, zero, 8(s1)
+000106b0           : SW, zero, 16(s1)
+000106b4           : SW, zero, 20(s1)
+000106b8           : SW, zero, 24(s1)
+000106bc           : ADDI, a0, s1, 92
+000106c0           : JAL, ra, memset
+000106c4           : LW s0, 12(s2)
+000106c8           : LUI, a5, 131072
+000106cc           : SW, s6, 32(s1)
+000106d0           : SW, s5, 36(s1)
+000106d4           : SW, s4, 40(s1)
+000106d8           : SW, s3, 44(s1)
+000106dc           : SW, s1, 28(s1)
+000106e0           : ADDI, a5, a5, 18
+000106e4           : SW, a5, 12(s0)
+000106e8           : SW, zero, 100(s0)
+000106ec           : SW, zero, 0(s0)
+000106f0           : SW, zero, 4(s0)
+000106f4           : SW, zero, 8(s0)
+000106f8           : SW, zero, 16(s0)
+000106fc           : SW, zero, 20(s0)
+00010700           : SW, zero, 24(s0)
+00010704           : ADDI, a0, s0, 92
+00010708           : ADDI, a2, zero, 8
+0001070c           : ADDI, a1, zero, 0
+00010710           : JAL, ra, memset
+00010714           : LW ra, 28(sp)
+00010718           : SW, s6, 32(s0)
+0001071c           : SW, s5, 36(s0)
+00010720           : SW, s4, 40(s0)
+00010724           : SW, s3, 44(s0)
+00010728           : SW, s0, 28(s0)
+0001072c           : LW s0, 24(sp)
+00010730           : ADDI, a5, zero, 1
+00010734           : SW, a5, 56(s2)
+00010738           : LW s1, 20(sp)
+0001073c           : LW s2, 16(sp)
+00010740           : LW s3, 12(sp)
+00010744           : LW s4, 8(sp)
+00010748           : LW s5, 4(sp)
+0001074c           : LW s6, 0(sp)
+00010750           : ADDI, sp, sp, 32
+00010754           : JALR zero, 0(ra)
+00010758 __sfmoreglue: ADDI, sp, sp, -16
+0001075c           : SW, s1, 4(sp)
+00010760           : ADDI, a2, zero, 104
+00010764           : ADDI, s1, a1, -1
+00010768           : MUL, s1, s1, a2
+0001076c           : SW, s2, 0(sp)
+00010770           : ADDI, s2, a1, 0
+00010774           : SW, s0, 8(sp)
+00010778           : SW, ra, 12(sp)
+0001077c           : ADDI, a1, s1, 116
+00010780           : JAL, ra, _malloc_r
+00010784           : ADDI, s0, a0, 0
+00010788           : BEQ, a0, zero, LOC_00024
+0001078c           : ADDI, a0, a0, 12
+00010790           : SW, zero, 0(s0)
+00010794           : SW, s2, 4(s0)
+00010798           : SW, a0, 8(s0)
+0001079c           : ADDI, a2, s1, 104
+000107a0           : ADDI, a1, zero, 0
+000107a4           : JAL, ra, memset
+000107a8  LOC_00024: LW ra, 12(sp)
+000107ac           : ADDI, a0, s0, 0
+000107b0           : LW s0, 8(sp)
+000107b4           : LW s1, 4(sp)
+000107b8           : LW s2, 0(sp)
+000107bc           : ADDI, sp, sp, 16
+000107c0           : JALR zero, 0(ra)
+000107c4      __sfp: ADDI, sp, sp, -32
+000107c8           : SW, s2, 16(sp)
+000107cc           : LW s2, 48(gp)
+000107d0           : SW, s3, 12(sp)
+000107d4           : SW, ra, 28(sp)
+000107d8           : LW a5, 56(s2)
+000107dc           : SW, s0, 24(sp)
+000107e0           : SW, s1, 20(sp)
+000107e4           : SW, s4, 8(sp)
+000107e8           : ADDI, s3, a0, 0
+000107ec           : BEQ, a5, zero, LOC_00025
+000107f0  LOC_0002b: ADDI, s2, s2, 736
+000107f4           : ADDI, s1, zero, -1
+000107f8           : ADDI, s4, zero, 4
+000107fc  LOC_0002a: LW a5, 4(s2)
+00010800           : LW s0, 8(s2)
+00010804           : ADDI, a5, a5, -1
+00010808           : BGE, a5, zero, LOC_00026
+0001080c           : JAL, zero, LOC_00027
+00010810  LOC_00028: ADDI, s0, s0, 104
+00010814           : BEQ, a5, s1, LOC_00027
+00010818  LOC_00026: LH a4, 12(s0)
+0001081c           : ADDI, a5, a5, -1
+00010820           : BNE, a4, zero, LOC_00028
+00010824           : LUI, a5, -65536
+00010828           : ADDI, a5, a5, 1
+0001082c           : SW, zero, 100(s0)
+00010830           : SW, zero, 0(s0)
+00010834           : SW, zero, 4(s0)
+00010838           : SW, zero, 8(s0)
+0001083c           : SW, a5, 12(s0)
+00010840           : SW, zero, 16(s0)
+00010844           : SW, zero, 20(s0)
+00010848           : SW, zero, 24(s0)
+0001084c           : ADDI, a2, zero, 8
+00010850           : ADDI, a1, zero, 0
+00010854           : ADDI, a0, s0, 92
+00010858           : JAL, ra, memset
+0001085c           : SW, zero, 48(s0)
+00010860           : SW, zero, 52(s0)
+00010864           : SW, zero, 68(s0)
+00010868           : SW, zero, 72(s0)
+0001086c  LOC_0002d: LW ra, 28(sp)
+00010870           : ADDI, a0, s0, 0
+00010874           : LW s0, 24(sp)
+00010878           : LW s1, 20(sp)
+0001087c           : LW s2, 16(sp)
+00010880           : LW s3, 12(sp)
+00010884           : LW s4, 8(sp)
+00010888           : ADDI, sp, sp, 32
+0001088c           : JALR zero, 0(ra)
+00010890  LOC_00027: LW s0, 0(s2)
+00010894           : BEQ, s0, zero, LOC_00029
+00010898           : ADDI, s2, s0, 0
+0001089c           : JAL, zero, LOC_0002a
+000108a0  LOC_00025: ADDI, a0, s2, 0
+000108a4           : JAL, ra, __sinit.part.0
+000108a8           : JAL, zero, LOC_0002b
+000108ac  LOC_00029: ADDI, a1, zero, 428
+000108b0           : ADDI, a0, s3, 0
+000108b4           : JAL, ra, _malloc_r
+000108b8           : ADDI, s0, a0, 0
+000108bc           : BEQ, a0, zero, LOC_0002c
+000108c0           : ADDI, a0, a0, 12
+000108c4           : SW, zero, 0(s0)
+000108c8           : SW, s4, 4(s0)
+000108cc           : SW, a0, 8(s0)
+000108d0           : ADDI, a2, zero, 416
+000108d4           : ADDI, a1, zero, 0
+000108d8           : JAL, ra, memset
+000108dc           : SW, s0, 0(s2)
+000108e0           : ADDI, s2, s0, 0
+000108e4           : JAL, zero, LOC_0002a
+000108e8  LOC_0002c: SW, zero, 0(s2)
+000108ec           : ADDI, a5, zero, 12
+000108f0           : SW, a5, 0(s3)
+000108f4           : JAL, zero, LOC_0002d
+000108f8   _cleanup: LW a0, 48(gp)
+000108fc           : LUI, a1, 73728
+00010900           : ADDI, a1, a1, 1256
+00010904           : JAL, zero, _fwalk_reent
+00010908    __sinit: LW a5, 56(a0)
+0001090c           : BEQ, a5, zero, LOC_0002e
+00010910           : JALR zero, 0(ra)
+00010914  LOC_0002e: JAL, zero, __sinit.part.0
+00010918 __sfp_lock_acquire: JALR zero, 0(ra)
+0001091c __sfp_lock_release: JALR zero, 0(ra)
+00010920 __sinit_lock_acquire: JALR zero, 0(ra)
+00010924 __sinit_lock_release: JALR zero, 0(ra)
+00010928 __fp_lock_all: LW a0, 56(gp)
+0001092c           : LUI, a1, 65536
+00010930           : ADDI, a1, a1, 1464
+00010934           : JAL, zero, _fwalk
+00010938 __fp_unlock_all: LW a0, 56(gp)
+0001093c           : LUI, a1, 65536
+00010940           : ADDI, a1, a1, 1484
+00010944           : JAL, zero, _fwalk
+00010948 __libc_fini_array: ADDI, sp, sp, -16
+0001094c           : SW, s0, 8(sp)
+00010950           : LUI, a5, 81920
+00010954           : LUI, s0, 81920
+00010958           : ADDI, s0, s0, 1664
+0001095c           : ADDI, a5, a5, 1668
+00010960           : SUB, a5, a5, s0
+00010964           : SW, s1, 4(sp)
+00010968           : SW, ra, 12(sp)
+0001096c           : SRAI, s1, a5, 2
+00010970           : BEQ, s1, zero, LOC_0002f
+00010974           : ADDI, a5, a5, -4
+00010978           : ADD, s0, a5, s0
+0001097c  LOC_00030: LW a5, 0(s0)
+00010980           : ADDI, s1, s1, -1
+00010984           : ADDI, s0, s0, -4
+00010988           : JALR ra, 0(a5)
+0001098c           : BNE, s1, zero, LOC_00030
+00010990  LOC_0002f: LW ra, 12(sp)
+00010994           : LW s0, 8(sp)
+00010998           : LW s1, 4(sp)
+0001099c           : ADDI, sp, sp, 16
+000109a0           : JALR zero, 0(ra)
+000109a4 __sfvwrite_r: LW a5, 8(a2)
+000109a8           : BEQ, a5, zero, LOC_00031
+000109ac           : LHU a5, 12(a1)
+000109b0           : ADDI, sp, sp, -48
+000109b4           : SW, s0, 40(sp)
+000109b8           : SW, s4, 24(sp)
+000109bc           : SW, s5, 20(sp)
+000109c0           : SW, ra, 44(sp)
+000109c4           : SW, s1, 36(sp)
+000109c8           : SW, s2, 32(sp)
+000109cc           : SW, s3, 28(sp)
+000109d0           : SW, s6, 16(sp)
+000109d4           : SW, s7, 12(sp)
+000109d8           : SW, s8, 8(sp)
+000109dc           : SW, s9, 4(sp)
+000109e0           : SW, s10, 0(sp)
+000109e4           : ANDI, a4, a5, 8
+000109e8           : ADDI, s4, a2, 0
+000109ec           : ADDI, s5, a0, 0
+000109f0           : ADDI, s0, a1, 0
+000109f4           : BEQ, a4, zero, LOC_00032
+000109f8           : LW a4, 16(a1)
+000109fc           : BEQ, a4, zero, LOC_00032
+00010a00           : ANDI, a4, a5, 2
+00010a04           : LW s1, 0(s4)
+00010a08           : BEQ, a4, zero, LOC_00033
+00010a0c  LOC_0003b: LW a5, 36(s0)
+00010a10           : LW a1, 28(s0)
+00010a14           : LUI, s6, -2147483648
+00010a18           : ADDI, s3, zero, 0
+00010a1c           : ADDI, s2, zero, 0
+00010a20           : XORI, s6, s6, -1024
+00010a24  LOC_00039: ADDI, a2, s3, 0
+00010a28           : ADDI, a0, s5, 0
+00010a2c           : BEQ, s2, zero, LOC_00034
+00010a30  LOC_00038: ADDI, a3, s2, 0
+00010a34           : BGEU, s6, s2, LOC_00035
+00010a38           : ADDI, a3, s6, 0
+00010a3c  LOC_00035: JALR ra, 0(a5)
+00010a40           : BGE, zero, a0, LOC_00036
+00010a44           : LW a5, 8(s4)
+00010a48           : ADD, s3, s3, a0
+00010a4c           : SUB, s2, s2, a0
+00010a50           : SUB, a0, a5, a0
+00010a54           : SW, a0, 8(s4)
+00010a58           : BEQ, a0, zero, LOC_00037
+00010a5c           : LW a5, 36(s0)
+00010a60           : LW a1, 28(s0)
+00010a64           : ADDI, a2, s3, 0
+00010a68           : ADDI, a0, s5, 0
+00010a6c           : BNE, s2, zero, LOC_00038
+00010a70  LOC_00034: LW s3, 0(s1)
+00010a74           : LW s2, 4(s1)
+00010a78           : ADDI, s1, s1, 8
+00010a7c           : JAL, zero, LOC_00039
+00010a80  LOC_00032: ADDI, a1, s0, 0
+00010a84           : ADDI, a0, s5, 0
+00010a88           : JAL, ra, __swsetup_r
+00010a8c           : BNE, a0, zero, LOC_0003a
+00010a90           : LHU a5, 12(s0)
+00010a94           : LW s1, 0(s4)
+00010a98           : ANDI, a4, a5, 2
+00010a9c           : BNE, a4, zero, LOC_0003b
+00010aa0  LOC_00033: ANDI, a4, a5, 1
+00010aa4           : BNE, a4, zero, LOC_0003c
+00010aa8           : LW s9, 8(s0)
+00010aac           : LW a0, 0(s0)
+00010ab0           : LUI, s6, -2147483648
+00010ab4           : XORI, s7, s6, -2
+00010ab8           : ADDI, s8, zero, 0
+00010abc           : ADDI, s2, zero, 0
+00010ac0           : XORI, s6, s6, -1
+00010ac4  LOC_00045: BEQ, s2, zero, LOC_0003d
+00010ac8  LOC_00044: ANDI, a4, a5, 512
+00010acc           : BEQ, a4, zero, LOC_0003e
+00010ad0           : ADDI, s10, s9, 0
+00010ad4           : BLTU, s2, s9, LOC_0003f
+00010ad8           : ANDI, a4, a5, 1152
+00010adc           : BEQ, a4, zero, LOC_00040
+00010ae0           : LW s3, 20(s0)
+00010ae4           : LW a1, 16(s0)
+00010ae8           : ADDI, a4, s2, 1
+00010aec           : SLLI, a3, s3, 1
+00010af0           : ADD, a3, a3, s3
+00010af4           : SRLI, s3, a3, 31
+00010af8           : SUB, s10, a0, a1
+00010afc           : ADD, s3, s3, a3
+00010b00           : SRAI, s3, s3, 1
+00010b04           : ADD, a4, a4, s10
+00010b08           : ADDI, a2, s3, 0
+00010b0c           : BGEU, s3, a4, LOC_00041
+00010b10           : ADDI, s3, a4, 0
+00010b14           : ADDI, a2, a4, 0
+00010b18  LOC_00041: ANDI, a5, a5, 1024
+00010b1c           : BEQ, a5, zero, LOC_00042
+00010b20           : ADDI, a1, a2, 0
+00010b24           : ADDI, a0, s5, 0
+00010b28           : JAL, ra, _malloc_r
+00010b2c           : ADDI, s9, a0, 0
+00010b30           : BEQ, a0, zero, LOC_00043
+00010b34           : LW a1, 16(s0)
+00010b38           : ADDI, a2, s10, 0
+00010b3c           : JAL, ra, memcpy
+00010b40           : LHU a5, 12(s0)
+00010b44           : ANDI, a5, a5, -1153
+00010b48           : ORI, a5, a5, 128
+00010b4c           : SH, a5, 12(s0)
+00010b50  LOC_00058: ADD, a0, s9, s10
+00010b54           : SUB, a5, s3, s10
+00010b58           : SW, s9, 16(s0)
+00010b5c           : SW, a0, 0(s0)
+00010b60           : SW, s3, 20(s0)
+00010b64           : ADDI, s9, s2, 0
+00010b68           : SW, a5, 8(s0)
+00010b6c           : ADDI, s10, s2, 0
+00010b70  LOC_00040: ADDI, a2, s10, 0
+00010b74           : ADDI, a1, s8, 0
+00010b78           : JAL, ra, memmove
+00010b7c           : LW a4, 8(s0)
+00010b80           : LW a5, 0(s0)
+00010b84           : ADDI, s3, s2, 0
+00010b88           : SUB, s9, a4, s9
+00010b8c           : ADD, a5, a5, s10
+00010b90           : SW, s9, 8(s0)
+00010b94           : SW, a5, 0(s0)
+00010b98           : ADDI, s2, zero, 0
+00010b9c  LOC_00055: LW a2, 8(s4)
+00010ba0           : ADD, s8, s8, s3
+00010ba4           : SUB, s3, a2, s3
+00010ba8           : SW, s3, 8(s4)
+00010bac           : BEQ, s3, zero, LOC_00037
+00010bb0           : LW s9, 8(s0)
+00010bb4           : LW a0, 0(s0)
+00010bb8           : LHU a5, 12(s0)
+00010bbc           : BNE, s2, zero, LOC_00044
+00010bc0  LOC_0003d: LW s8, 0(s1)
+00010bc4           : LW s2, 4(s1)
+00010bc8           : ADDI, s1, s1, 8
+00010bcc           : JAL, zero, LOC_00045
+00010bd0  LOC_0003c: ADDI, s6, zero, 0
+00010bd4           : ADDI, a0, zero, 0
+00010bd8           : ADDI, s8, zero, 0
+00010bdc           : ADDI, s3, zero, 0
+00010be0  LOC_0004d: BEQ, s3, zero, LOC_00046
+00010be4           : BEQ, a0, zero, LOC_00047
+00010be8  LOC_00051: ADDI, a5, s6, 0
+00010bec  LOC_0005a: ADDI, s7, s3, 0
+00010bf0           : BGEU, a5, s3, LOC_00048
+00010bf4           : ADDI, s7, a5, 0
+00010bf8  LOC_00048: LW a0, 0(s0)
+00010bfc           : LW a5, 16(s0)
+00010c00           : LW a3, 20(s0)
+00010c04           : BGEU, a5, a0, LOC_00049
+00010c08           : LW s2, 8(s0)
+00010c0c           : ADD, s2, a3, s2
+00010c10           : BLT, s2, s7, LOC_0004a
+00010c14  LOC_00049: BLT, s7, a3, LOC_0004b
+00010c18           : LW a5, 36(s0)
+00010c1c           : LW a1, 28(s0)
+00010c20           : ADDI, a2, s8, 0
+00010c24           : ADDI, a0, s5, 0
+00010c28           : JALR ra, 0(a5)
+00010c2c           : ADDI, s2, a0, 0
+00010c30           : BGE, zero, a0, LOC_00036
+00010c34  LOC_00052: SUB, s6, s6, s2
+00010c38           : ADDI, a0, zero, 1
+00010c3c           : BEQ, s6, zero, LOC_0004c
+00010c40  LOC_0004e: LW a2, 8(s4)
+00010c44           : ADD, s8, s8, s2
+00010c48           : SUB, s3, s3, s2
+00010c4c           : SUB, s2, a2, s2
+00010c50           : SW, s2, 8(s4)
+00010c54           : BNE, s2, zero, LOC_0004d
+00010c58  LOC_00037: ADDI, a0, zero, 0
+00010c5c  LOC_0004f: LW ra, 44(sp)
+00010c60           : LW s0, 40(sp)
+00010c64           : LW s1, 36(sp)
+00010c68           : LW s2, 32(sp)
+00010c6c           : LW s3, 28(sp)
+00010c70           : LW s4, 24(sp)
+00010c74           : LW s5, 20(sp)
+00010c78           : LW s6, 16(sp)
+00010c7c           : LW s7, 12(sp)
+00010c80           : LW s8, 8(sp)
+00010c84           : LW s9, 4(sp)
+00010c88           : LW s10, 0(sp)
+00010c8c           : ADDI, sp, sp, 48
+00010c90           : JALR zero, 0(ra)
+00010c94  LOC_0004c: ADDI, a1, s0, 0
+00010c98           : ADDI, a0, s5, 0
+00010c9c           : JAL, ra, _fflush_r
+00010ca0           : BEQ, a0, zero, LOC_0004e
+00010ca4  LOC_00036: LH a5, 12(s0)
+00010ca8  LOC_00059: ORI, a5, a5, 64
+00010cac           : SH, a5, 12(s0)
+00010cb0           : ADDI, a0, zero, -1
+00010cb4           : JAL, zero, LOC_0004f
+00010cb8  LOC_00031: ADDI, a0, zero, 0
+00010cbc           : JALR zero, 0(ra)
+00010cc0  LOC_00046: LW s3, 4(s1)
+00010cc4           : LW s8, 0(s1)
+00010cc8           : ADDI, s1, s1, 8
+00010ccc           : BEQ, s3, zero, LOC_00046
+00010cd0  LOC_00047: ADDI, a2, s3, 0
+00010cd4           : ADDI, a1, zero, 10
+00010cd8           : ADDI, a0, s8, 0
+00010cdc           : JAL, ra, memchr
+00010ce0           : BEQ, a0, zero, LOC_00050
+00010ce4           : ADDI, a0, a0, 1
+00010ce8           : SUB, s6, a0, s8
+00010cec           : JAL, zero, LOC_00051
+00010cf0  LOC_0004a: ADDI, a1, s8, 0
+00010cf4           : ADDI, a2, s2, 0
+00010cf8           : JAL, ra, memmove
+00010cfc           : LW a5, 0(s0)
+00010d00           : ADDI, a1, s0, 0
+00010d04           : ADDI, a0, s5, 0
+00010d08           : ADD, a5, a5, s2
+00010d0c           : SW, a5, 0(s0)
+00010d10           : JAL, ra, _fflush_r
+00010d14           : BEQ, a0, zero, LOC_00052
+00010d18           : JAL, zero, LOC_00036
+00010d1c  LOC_0003e: LW a5, 16(s0)
+00010d20           : BLTU, a5, a0, LOC_00053
+00010d24           : LW a5, 20(s0)
+00010d28           : BLTU, s2, a5, LOC_00053
+00010d2c           : ADDI, a3, s2, 0
+00010d30           : BGEU, s7, s2, LOC_00054
+00010d34           : ADDI, a3, s6, 0
+00010d38  LOC_00054: DIV, a3, a3, a5
+00010d3c           : LW a4, 36(s0)
+00010d40           : LW a1, 28(s0)
+00010d44           : ADDI, a2, s8, 0
+00010d48           : ADDI, a0, s5, 0
+00010d4c           : MUL, a3, a3, a5
+00010d50           : JALR ra, 0(a4)
+00010d54           : ADDI, s3, a0, 0
+00010d58           : BGE, zero, a0, LOC_00036
+00010d5c  LOC_00057: SUB, s2, s2, s3
+00010d60           : JAL, zero, LOC_00055
+00010d64  LOC_00053: ADDI, s3, s9, 0
+00010d68           : BGEU, s2, s9, LOC_00056
+00010d6c           : ADDI, s3, s2, 0
+00010d70  LOC_00056: ADDI, a2, s3, 0
+00010d74           : ADDI, a1, s8, 0
+00010d78           : JAL, ra, memmove
+00010d7c           : LW a5, 8(s0)
+00010d80           : LW a4, 0(s0)
+00010d84           : SUB, a5, a5, s3
+00010d88           : ADD, a4, a4, s3
+00010d8c           : SW, a5, 8(s0)
+00010d90           : SW, a4, 0(s0)
+00010d94           : BNE, a5, zero, LOC_00057
+00010d98           : ADDI, a1, s0, 0
+00010d9c           : ADDI, a0, s5, 0
+00010da0           : JAL, ra, _fflush_r
+00010da4           : BNE, a0, zero, LOC_00036
+00010da8           : SUB, s2, s2, s3
+00010dac           : JAL, zero, LOC_00055
+00010db0  LOC_0003f: ADDI, s9, s2, 0
+00010db4           : ADDI, s10, s2, 0
+00010db8           : JAL, zero, LOC_00040
+00010dbc  LOC_0004b: ADDI, a2, s7, 0
+00010dc0           : ADDI, a1, s8, 0
+00010dc4           : JAL, ra, memmove
+00010dc8           : LW a4, 8(s0)
+00010dcc           : LW a5, 0(s0)
+00010dd0           : ADDI, s2, s7, 0
+00010dd4           : SUB, a4, a4, s7
+00010dd8           : ADD, a5, a5, s7
+00010ddc           : SW, a4, 8(s0)
+00010de0           : SW, a5, 0(s0)
+00010de4           : JAL, zero, LOC_00052
+00010de8  LOC_00042: ADDI, a0, s5, 0
+00010dec           : JAL, ra, _realloc_r
+00010df0           : ADDI, s9, a0, 0
+00010df4           : BNE, a0, zero, LOC_00058
+00010df8           : LW a1, 16(s0)
+00010dfc           : ADDI, a0, s5, 0
+00010e00           : JAL, ra, _free_r
+00010e04           : LH a5, 12(s0)
+00010e08           : ADDI, a4, zero, 12
+00010e0c           : SW, a4, 0(s5)
+00010e10           : ANDI, a5, a5, -129
+00010e14           : JAL, zero, LOC_00059
+00010e18  LOC_00050: ADDI, a5, s3, 1
+00010e1c           : ADDI, s6, a5, 0
+00010e20           : JAL, zero, LOC_0005a
+00010e24  LOC_00043: ADDI, a4, zero, 12
+00010e28           : LH a5, 12(s0)
+00010e2c           : SW, a4, 0(s5)
+00010e30           : JAL, zero, LOC_00059
+00010e34  LOC_0003a: ADDI, a0, zero, -1
+00010e38           : JAL, zero, LOC_0004f
+00010e3c     _fwalk: ADDI, sp, sp, -32
+00010e40           : SW, s2, 16(sp)
+00010e44           : SW, s3, 12(sp)
+00010e48           : SW, s4, 8(sp)
+00010e4c           : SW, s5, 4(sp)
+00010e50           : SW, s6, 0(sp)
+00010e54           : SW, ra, 28(sp)
+00010e58           : SW, s0, 24(sp)
+00010e5c           : SW, s1, 20(sp)
+00010e60           : ADDI, s6, a1, 0
+00010e64           : ADDI, s5, a0, 736
+00010e68           : ADDI, s4, zero, 0
+00010e6c           : ADDI, s3, zero, 1
+00010e70           : ADDI, s2, zero, -1
+00010e74  LOC_0005e: LW s1, 4(s5)
+00010e78           : LW s0, 8(s5)
+00010e7c           : ADDI, s1, s1, -1
+00010e80           : BLT, s1, zero, LOC_0005b
+00010e84  LOC_0005d: LHU a5, 12(s0)
+00010e88           : ADDI, s1, s1, -1
+00010e8c           : BGEU, s3, a5, LOC_0005c
+00010e90           : LH a5, 14(s0)
+00010e94           : ADDI, a0, s0, 0
+00010e98           : BEQ, a5, s2, LOC_0005c
+00010e9c           : JALR ra, 0(s6)
+00010ea0           : OR, s4, s4, a0
+00010ea4  LOC_0005c: ADDI, s0, s0, 104
+00010ea8           : BNE, s1, s2, LOC_0005d
+00010eac  LOC_0005b: LW s5, 0(s5)
+00010eb0           : BNE, s5, zero, LOC_0005e
+00010eb4           : LW ra, 28(sp)
+00010eb8           : LW s0, 24(sp)
+00010ebc           : LW s1, 20(sp)
+00010ec0           : LW s2, 16(sp)
+00010ec4           : LW s3, 12(sp)
+00010ec8           : LW s5, 4(sp)
+00010ecc           : LW s6, 0(sp)
+00010ed0           : ADDI, a0, s4, 0
+00010ed4           : LW s4, 8(sp)
+00010ed8           : ADDI, sp, sp, 32
+00010edc           : JALR zero, 0(ra)
+00010ee0 _fwalk_reent: ADDI, sp, sp, -48
+00010ee4           : SW, s2, 32(sp)
+00010ee8           : SW, s3, 28(sp)
+00010eec           : SW, s4, 24(sp)
+00010ef0           : SW, s5, 20(sp)
+00010ef4           : SW, s6, 16(sp)
+00010ef8           : SW, s7, 12(sp)
+00010efc           : SW, ra, 44(sp)
+00010f00           : SW, s0, 40(sp)
+00010f04           : SW, s1, 36(sp)
+00010f08           : ADDI, s5, a0, 0
+00010f0c           : ADDI, s7, a1, 0
+00010f10           : ADDI, s6, a0, 736
+00010f14           : ADDI, s4, zero, 0
+00010f18           : ADDI, s3, zero, 1
+00010f1c           : ADDI, s2, zero, -1
+00010f20  LOC_00062: LW s1, 4(s6)
+00010f24           : LW s0, 8(s6)
+00010f28           : ADDI, s1, s1, -1
+00010f2c           : BLT, s1, zero, LOC_0005f
+00010f30  LOC_00061: LHU a5, 12(s0)
+00010f34           : ADDI, s1, s1, -1
+00010f38           : BGEU, s3, a5, LOC_00060
+00010f3c           : LH a5, 14(s0)
+00010f40           : ADDI, a1, s0, 0
+00010f44           : ADDI, a0, s5, 0
+00010f48           : BEQ, a5, s2, LOC_00060
+00010f4c           : JALR ra, 0(s7)
+00010f50           : OR, s4, s4, a0
+00010f54  LOC_00060: ADDI, s0, s0, 104
+00010f58           : BNE, s1, s2, LOC_00061
+00010f5c  LOC_0005f: LW s6, 0(s6)
+00010f60           : BNE, s6, zero, LOC_00062
+00010f64           : LW ra, 44(sp)
+00010f68           : LW s0, 40(sp)
+00010f6c           : LW s1, 36(sp)
+00010f70           : LW s2, 32(sp)
+00010f74           : LW s3, 28(sp)
+00010f78           : LW s5, 20(sp)
+00010f7c           : LW s6, 16(sp)
+00010f80           : LW s7, 12(sp)
+00010f84           : ADDI, a0, s4, 0
+00010f88           : LW s4, 24(sp)
+00010f8c           : ADDI, sp, sp, 48
+00010f90           : JALR zero, 0(ra)
+00010f94  _malloc_r: ADDI, sp, sp, -48
+00010f98           : SW, s3, 28(sp)
+00010f9c           : SW, ra, 44(sp)
+00010fa0           : SW, s0, 40(sp)
+00010fa4           : SW, s1, 36(sp)
+00010fa8           : SW, s2, 32(sp)
+00010fac           : SW, s4, 24(sp)
+00010fb0           : SW, s5, 20(sp)
+00010fb4           : SW, s6, 16(sp)
+00010fb8           : SW, s7, 12(sp)
+00010fbc           : SW, s8, 8(sp)
+00010fc0           : SW, s9, 4(sp)
+00010fc4           : ADDI, a5, a1, 11
+00010fc8           : ADDI, a4, zero, 22
+00010fcc           : ADDI, s3, a0, 0
+00010fd0           : BLTU, a4, a5, LOC_00063
+00010fd4           : ADDI, a5, zero, 16
+00010fd8           : BLTU, a5, a1, LOC_00064
+00010fdc           : JAL, ra, __malloc_lock
+00010fe0           : ADDI, s1, zero, 16
+00010fe4           : ADDI, a5, zero, 24
+00010fe8           : ADDI, a2, zero, 2
+00010fec  LOC_00094: ADDI, s2, gp, -984
+00010ff0           : ADD, a5, s2, a5
+00010ff4           : LW s0, 4(a5)
+00010ff8           : ADDI, a4, a5, -8
+00010ffc           : BEQ, s0, a4, LOC_00065
+00011000  LOC_00079: LW a5, 4(s0)
+00011004           : LW a3, 12(s0)
+00011008           : LW a2, 8(s0)
+0001100c           : ANDI, a5, a5, -4
+00011010  LOC_0008a: ADD, a5, s0, a5
+00011014           : LW a4, 4(a5)
+00011018           : SW, a3, 12(a2)
+0001101c           : SW, a2, 8(a3)
+00011020           : ORI, a4, a4, 1
+00011024           : ADDI, a0, s3, 0
+00011028           : SW, a4, 4(a5)
+0001102c           : JAL, ra, __malloc_unlock
+00011030           : ADDI, a0, s0, 8
+00011034           : JAL, zero, LOC_00066
+00011038  LOC_00063: ANDI, s1, a5, -8
+0001103c           : BLT, a5, zero, LOC_00064
+00011040           : BLTU, s1, a1, LOC_00064
+00011044           : JAL, ra, __malloc_lock
+00011048           : ADDI, a5, zero, 503
+0001104c           : BGEU, a5, s1, LOC_00067
+00011050           : SRLI, a5, s1, 9
+00011054           : BEQ, a5, zero, LOC_00068
+00011058           : ADDI, a4, zero, 4
+0001105c           : BLTU, a4, a5, LOC_00069
+00011060           : SRLI, a5, s1, 6
+00011064           : ADDI, a2, a5, 57
+00011068           : ADDI, a0, a5, 56
+0001106c           : SLLI, a3, a2, 3
+00011070  LOC_00078: ADDI, s2, gp, -984
+00011074           : ADD, a3, s2, a3
+00011078           : LW s0, 4(a3)
+0001107c           : ADDI, a3, a3, -8
+00011080           : BEQ, a3, s0, LOC_0006a
+00011084           : ADDI, a1, zero, 15
+00011088           : JAL, zero, LOC_0006b
+0001108c  LOC_0006d: BGE, a4, zero, LOC_0006c
+00011090           : LW s0, 12(s0)
+00011094           : BEQ, a3, s0, LOC_0006a
+00011098  LOC_0006b: LW a5, 4(s0)
+0001109c           : ANDI, a5, a5, -4
+000110a0           : SUB, a4, a5, s1
+000110a4           : BGE, a1, a4, LOC_0006d
+000110a8           : ADDI, a2, a0, 0
+000110ac  LOC_0006a: LW s0, 16(s2)
+000110b0           : ADDI, a7, s2, 8
+000110b4           : BEQ, s0, a7, LOC_0006e
+000110b8  LOC_0007a: LW a0, 4(s0)
+000110bc           : ADDI, a3, zero, 15
+000110c0           : ANDI, a0, a0, -4
+000110c4           : SUB, a5, a0, s1
+000110c8           : BLT, a3, a5, LOC_0006f
+000110cc           : SW, a7, 20(s2)
+000110d0           : SW, a7, 16(s2)
+000110d4           : BGE, a5, zero, LOC_00070
+000110d8           : ADDI, a5, zero, 511
+000110dc           : BLTU, a5, a0, LOC_00071
+000110e0           : ANDI, a5, a0, -8
+000110e4           : ADDI, a5, a5, 8
+000110e8           : LW a1, 4(s2)
+000110ec           : ADD, a5, s2, a5
+000110f0           : LW a3, 0(a5)
+000110f4           : SRLI, a0, a0, 5
+000110f8           : ADDI, a4, zero, 1
+000110fc           : SLL, a4, a4, a0
+00011100           : OR, a4, a4, a1
+00011104           : ADDI, a1, a5, -8
+00011108           : SW, a1, 12(s0)
+0001110c           : SW, a3, 8(s0)
+00011110           : SW, a4, 4(s2)
+00011114           : SW, s0, 0(a5)
+00011118           : SW, s0, 12(a3)
+0001111c  LOC_00090: SRAI, a5, a2, 2
+00011120           : ADDI, a1, zero, 1
+00011124           : SLL, a1, a1, a5
+00011128           : BLTU, a4, a1, LOC_00072
+0001112c  LOC_0007b: AND, a5, a1, a4
+00011130           : BNE, a5, zero, LOC_00073
+00011134           : SLLI, a1, a1, 1
+00011138           : ANDI, a2, a2, -4
+0001113c           : AND, a5, a1, a4
+00011140           : ADDI, a2, a2, 4
+00011144           : BNE, a5, zero, LOC_00073
+00011148  LOC_00074: SLLI, a1, a1, 1
+0001114c           : AND, a5, a1, a4
+00011150           : ADDI, a2, a2, 4
+00011154           : BEQ, a5, zero, LOC_00074
+00011158  LOC_00073: ADDI, a6, zero, 15
+0001115c  LOC_0009c: SLLI, t1, a2, 3
+00011160           : ADD, t1, s2, t1
+00011164           : ADDI, a0, t1, 0
+00011168           : LW a5, 12(a0)
+0001116c           : ADDI, t3, a2, 0
+00011170  LOC_00077: BEQ, a0, a5, LOC_00075
+00011174           : LW a4, 4(a5)
+00011178           : ADDI, s0, a5, 0
+0001117c           : LW a5, 12(a5)
+00011180           : ANDI, a4, a4, -4
+00011184           : SUB, a3, a4, s1
+00011188           : BLT, a6, a3, LOC_00076
+0001118c           : BLT, a3, zero, LOC_00077
+00011190           : ADD, a4, s0, a4
+00011194           : LW a3, 4(a4)
+00011198           : LW a2, 8(s0)
+0001119c           : ADDI, a0, s3, 0
+000111a0           : ORI, a3, a3, 1
+000111a4           : SW, a3, 4(a4)
+000111a8           : SW, a5, 12(a2)
+000111ac           : SW, a2, 8(a5)
+000111b0           : JAL, ra, __malloc_unlock
+000111b4           : ADDI, a0, s0, 8
+000111b8           : JAL, zero, LOC_00066
+000111bc  LOC_00064: ADDI, a5, zero, 12
+000111c0           : SW, a5, 0(s3)
+000111c4           : ADDI, a0, zero, 0
+000111c8  LOC_00066: LW ra, 44(sp)
+000111cc           : LW s0, 40(sp)
+000111d0           : LW s1, 36(sp)
+000111d4           : LW s2, 32(sp)
+000111d8           : LW s3, 28(sp)
+000111dc           : LW s4, 24(sp)
+000111e0           : LW s5, 20(sp)
+000111e4           : LW s6, 16(sp)
+000111e8           : LW s7, 12(sp)
+000111ec           : LW s8, 8(sp)
+000111f0           : LW s9, 4(sp)
+000111f4           : ADDI, sp, sp, 48
+000111f8           : JALR zero, 0(ra)
+000111fc  LOC_00068: ADDI, a3, zero, 512
+00011200           : ADDI, a2, zero, 64
+00011204           : ADDI, a0, zero, 63
+00011208           : JAL, zero, LOC_00078
+0001120c  LOC_00065: LW s0, 12(a5)
+00011210           : ADDI, a2, a2, 2
+00011214           : BNE, a5, s0, LOC_00079
+00011218           : LW s0, 16(s2)
+0001121c           : ADDI, a7, s2, 8
+00011220           : BNE, s0, a7, LOC_0007a
+00011224  LOC_0006e: LW a4, 4(s2)
+00011228           : SRAI, a5, a2, 2
+0001122c           : ADDI, a1, zero, 1
+00011230           : SLL, a1, a1, a5
+00011234           : BGEU, a4, a1, LOC_0007b
+00011238  LOC_00072: LW s0, 8(s2)
+0001123c           : LW s5, 4(s0)
+00011240           : ANDI, s6, s5, -4
+00011244           : BLTU, s6, s1, LOC_0007c
+00011248           : SUB, a5, s6, s1
+0001124c           : ADDI, a4, zero, 15
+00011250           : BLT, a4, a5, LOC_0007d
+00011254  LOC_0007c: LW s5, 76(gp)
+00011258           : LW a4, 60(gp)
+0001125c           : ADDI, a5, zero, -1
+00011260           : ADD, s4, s0, s6
+00011264           : ADD, s5, s1, s5
+00011268           : BEQ, a4, a5, LOC_0007e
+0001126c           : LUI, a5, 4096
+00011270           : ADDI, a5, a5, 15
+00011274           : ADD, s5, s5, a5
+00011278           : LUI, a5, -4096
+0001127c           : AND, s5, s5, a5
+00011280  LOC_0009d: ADDI, a1, s5, 0
+00011284           : ADDI, a0, s3, 0
+00011288           : JAL, ra, _sbrk_r
+0001128c           : ADDI, a5, zero, -1
+00011290           : ADDI, s7, a0, 0
+00011294           : BEQ, a0, a5, LOC_0007f
+00011298           : BLTU, a0, s4, LOC_00080
+0001129c           : ADDI, s8, gp, 116
+000112a0           : LW a1, 0(s8)
+000112a4           : ADD, a1, s5, a1
+000112a8           : SW, a1, 0(s8)
+000112ac           : ADDI, a5, a1, 0
+000112b0           : BEQ, s4, a0, LOC_00081
+000112b4  LOC_000a3: LW a3, 60(gp)
+000112b8           : ADDI, a4, zero, -1
+000112bc           : BEQ, a3, a4, LOC_00082
+000112c0           : SUB, s4, s7, s4
+000112c4           : ADD, a5, s4, a5
+000112c8           : SW, a5, 0(s8)
+000112cc  LOC_000a5: ANDI, s9, s7, 7
+000112d0           : BEQ, s9, zero, LOC_00083
+000112d4           : LUI, a5, 4096
+000112d8           : SUB, s7, s7, s9
+000112dc           : ADDI, a1, a5, 8
+000112e0           : ADDI, s7, s7, 8
+000112e4           : SUB, a1, a1, s9
+000112e8           : ADD, s5, s7, s5
+000112ec           : ADDI, a5, a5, -1
+000112f0           : SUB, a1, a1, s5
+000112f4           : AND, s4, a1, a5
+000112f8           : ADDI, a1, s4, 0
+000112fc           : ADDI, a0, s3, 0
+00011300           : JAL, ra, _sbrk_r
+00011304           : ADDI, a5, zero, -1
+00011308           : BEQ, a0, a5, LOC_00084
+0001130c  LOC_0009f: SUB, a0, a0, s7
+00011310           : ADD, s5, a0, s4
+00011314  LOC_000a0: LW a1, 0(s8)
+00011318           : SW, s7, 8(s2)
+0001131c           : ORI, s5, s5, 1
+00011320           : ADD, a1, s4, a1
+00011324           : SW, a1, 0(s8)
+00011328           : SW, s5, 4(s7)
+0001132c           : BEQ, s0, s2, LOC_00085
+00011330           : ADDI, a3, zero, 15
+00011334           : BGEU, a3, s6, LOC_00086
+00011338           : LW a4, 4(s0)
+0001133c           : ADDI, a5, s6, -12
+00011340           : ANDI, a5, a5, -8
+00011344           : ANDI, a4, a4, 1
+00011348           : OR, a4, a4, a5
+0001134c           : SW, a4, 4(s0)
+00011350           : ADDI, a2, zero, 5
+00011354           : ADD, a4, s0, a5
+00011358           : SW, a2, 4(a4)
+0001135c           : SW, a2, 8(a4)
+00011360           : BLTU, a3, a5, LOC_00087
+00011364           : LW s5, 4(s7)
+00011368           : ADDI, s0, s7, 0
+0001136c  LOC_000a4: LW a4, 72(gp)
+00011370           : BGEU, a4, a1, LOC_00088
+00011374           : SW, a1, 72(gp)
+00011378  LOC_00088: LW a4, 68(gp)
+0001137c           : BGEU, a4, a1, LOC_00089
+00011380           : SW, a1, 68(gp)
+00011384           : JAL, zero, LOC_00089
+00011388  LOC_0007d: ORI, a4, s1, 1
+0001138c           : SW, a4, 4(s0)
+00011390           : ADD, s1, s0, s1
+00011394           : SW, s1, 8(s2)
+00011398           : ORI, a5, a5, 1
+0001139c           : ADDI, a0, s3, 0
+000113a0           : SW, a5, 4(s1)
+000113a4           : JAL, ra, __malloc_unlock
+000113a8           : ADDI, a0, s0, 8
+000113ac           : JAL, zero, LOC_00066
+000113b0  LOC_0006c: LW a3, 12(s0)
+000113b4           : LW a2, 8(s0)
+000113b8           : JAL, zero, LOC_0008a
+000113bc  LOC_00071: SRLI, a5, a0, 9
+000113c0           : ADDI, a4, zero, 4
+000113c4           : BGEU, a4, a5, LOC_0008b
+000113c8           : ADDI, a4, zero, 20
+000113cc           : BLTU, a4, a5, LOC_0008c
+000113d0           : ADDI, a3, a5, 92
+000113d4           : ADDI, a1, a5, 91
+000113d8           : SLLI, a3, a3, 3
+000113dc  LOC_00095: ADD, a3, s2, a3
+000113e0           : LW a5, 0(a3)
+000113e4           : ADDI, a3, a3, -8
+000113e8           : BEQ, a3, a5, LOC_0008d
+000113ec  LOC_0008f: LW a4, 4(a5)
+000113f0           : ANDI, a4, a4, -4
+000113f4           : BGEU, a0, a4, LOC_0008e
+000113f8           : LW a5, 8(a5)
+000113fc           : BNE, a3, a5, LOC_0008f
+00011400  LOC_0008e: LW a3, 12(a5)
+00011404           : LW a4, 4(s2)
+00011408  LOC_0009e: SW, a3, 12(s0)
+0001140c           : SW, a5, 8(s0)
+00011410           : SW, s0, 8(a3)
+00011414           : SW, s0, 12(a5)
+00011418           : JAL, zero, LOC_00090
+0001141c  LOC_00069: ADDI, a4, zero, 20
+00011420           : BGEU, a4, a5, LOC_00091
+00011424           : ADDI, a4, zero, 84
+00011428           : BLTU, a4, a5, LOC_00092
+0001142c           : SRLI, a5, s1, 12
+00011430           : ADDI, a2, a5, 111
+00011434           : ADDI, a0, a5, 110
+00011438           : SLLI, a3, a2, 3
+0001143c           : JAL, zero, LOC_00078
+00011440  LOC_00075: ADDI, t3, t3, 1
+00011444           : ANDI, a5, t3, 3
+00011448           : ADDI, a0, a0, 8
+0001144c           : BEQ, a5, zero, LOC_00093
+00011450           : LW a5, 12(a0)
+00011454           : JAL, zero, LOC_00077
+00011458  LOC_00076: LW a2, 8(s0)
+0001145c           : ORI, a1, s1, 1
+00011460           : SW, a1, 4(s0)
+00011464           : SW, a5, 12(a2)
+00011468           : SW, a2, 8(a5)
+0001146c           : ADD, s1, s0, s1
+00011470           : SW, s1, 20(s2)
+00011474           : SW, s1, 16(s2)
+00011478           : ORI, a5, a3, 1
+0001147c           : SW, a7, 12(s1)
+00011480           : SW, a7, 8(s1)
+00011484           : SW, a5, 4(s1)
+00011488           : ADD, a4, s0, a4
+0001148c           : ADDI, a0, s3, 0
+00011490           : SW, a3, 0(a4)
+00011494           : JAL, ra, __malloc_unlock
+00011498           : ADDI, a0, s0, 8
+0001149c           : JAL, zero, LOC_00066
+000114a0  LOC_00067: SRLI, a2, s1, 3
+000114a4           : ADDI, a5, s1, 8
+000114a8           : JAL, zero, LOC_00094
+000114ac  LOC_00070: ADD, a4, s0, a0
+000114b0           : LW a5, 4(a4)
+000114b4           : ADDI, a0, s3, 0
+000114b8           : ORI, a5, a5, 1
+000114bc           : SW, a5, 4(a4)
+000114c0           : JAL, ra, __malloc_unlock
+000114c4           : ADDI, a0, s0, 8
+000114c8           : JAL, zero, LOC_00066
+000114cc  LOC_0006f: ORI, a4, s1, 1
+000114d0           : SW, a4, 4(s0)
+000114d4           : ADD, s1, s0, s1
+000114d8           : SW, s1, 20(s2)
+000114dc           : SW, s1, 16(s2)
+000114e0           : ORI, a4, a5, 1
+000114e4           : SW, a7, 12(s1)
+000114e8           : SW, a7, 8(s1)
+000114ec           : SW, a4, 4(s1)
+000114f0           : ADD, a0, s0, a0
+000114f4           : SW, a5, 0(a0)
+000114f8           : ADDI, a0, s3, 0
+000114fc           : JAL, ra, __malloc_unlock
+00011500           : ADDI, a0, s0, 8
+00011504           : JAL, zero, LOC_00066
+00011508  LOC_0008b: SRLI, a5, a0, 6
+0001150c           : ADDI, a3, a5, 57
+00011510           : ADDI, a1, a5, 56
+00011514           : SLLI, a3, a3, 3
+00011518           : JAL, zero, LOC_00095
+0001151c  LOC_00080: BEQ, s0, s2, LOC_00096
+00011520  LOC_0007f: LW s0, 8(s2)
+00011524           : LW s5, 4(s0)
+00011528  LOC_00089: ANDI, s5, s5, -4
+0001152c           : SUB, a5, s5, s1
+00011530           : BLTU, s5, s1, LOC_00097
+00011534           : ADDI, a4, zero, 15
+00011538           : BLT, a4, a5, LOC_0007d
+0001153c  LOC_00097: ADDI, a0, s3, 0
+00011540           : JAL, ra, __malloc_unlock
+00011544           : ADDI, a0, zero, 0
+00011548           : JAL, zero, LOC_00066
+0001154c  LOC_00091: ADDI, a2, a5, 92
+00011550           : ADDI, a0, a5, 91
+00011554           : SLLI, a3, a2, 3
+00011558           : JAL, zero, LOC_00078
+0001155c  LOC_00099: LW a5, 8(t1)
+00011560           : ADDI, a2, a2, -1
+00011564           : BNE, a5, t1, LOC_00098
+00011568  LOC_00093: ANDI, a5, a2, 3
+0001156c           : ADDI, t1, t1, -8
+00011570           : BNE, a5, zero, LOC_00099
+00011574           : LW a4, 4(s2)
+00011578           : XORI, a5, a1, -1
+0001157c           : AND, a5, a5, a4
+00011580           : SW, a5, 4(s2)
+00011584  LOC_000a9: SLLI, a1, a1, 1
+00011588           : BLTU, a5, a1, LOC_00072
+0001158c           : BEQ, a1, zero, LOC_00072
+00011590           : AND, a4, a1, a5
+00011594           : BNE, a4, zero, LOC_0009a
+00011598  LOC_0009b: SLLI, a1, a1, 1
+0001159c           : AND, a4, a1, a5
+000115a0           : ADDI, t3, t3, 4
+000115a4           : BEQ, a4, zero, LOC_0009b
+000115a8  LOC_0009a: ADDI, a2, t3, 0
+000115ac           : JAL, zero, LOC_0009c
+000115b0  LOC_0007e: ADDI, s5, s5, 16
+000115b4           : JAL, zero, LOC_0009d
+000115b8  LOC_0008d: LW a0, 4(s2)
+000115bc           : SRAI, a1, a1, 2
+000115c0           : ADDI, a4, zero, 1
+000115c4           : SLL, a4, a4, a1
+000115c8           : OR, a4, a4, a0
+000115cc           : SW, a4, 4(s2)
+000115d0           : JAL, zero, LOC_0009e
+000115d4  LOC_00083: ADD, a1, s7, s5
+000115d8           : SUB, a1, zero, a1
+000115dc           : SLLI, a1, a1, 20
+000115e0           : SRLI, s4, a1, 20
+000115e4           : ADDI, a1, s4, 0
+000115e8           : ADDI, a0, s3, 0
+000115ec           : JAL, ra, _sbrk_r
+000115f0           : ADDI, a5, zero, -1
+000115f4           : BNE, a0, a5, LOC_0009f
+000115f8           : ADDI, s4, zero, 0
+000115fc           : JAL, zero, LOC_000a0
+00011600  LOC_0008c: ADDI, a4, zero, 84
+00011604           : BLTU, a4, a5, LOC_000a1
+00011608           : SRLI, a5, a0, 12
+0001160c           : ADDI, a3, a5, 111
+00011610           : ADDI, a1, a5, 110
+00011614           : SLLI, a3, a3, 3
+00011618           : JAL, zero, LOC_00095
+0001161c  LOC_00092: ADDI, a4, zero, 340
+00011620           : BLTU, a4, a5, LOC_000a2
+00011624           : SRLI, a5, s1, 15
+00011628           : ADDI, a2, a5, 120
+0001162c           : ADDI, a0, a5, 119
+00011630           : SLLI, a3, a2, 3
+00011634           : JAL, zero, LOC_00078
+00011638  LOC_00096: ADDI, s8, gp, 116
+0001163c           : LW a5, 0(s8)
+00011640           : ADD, a5, s5, a5
+00011644           : SW, a5, 0(s8)
+00011648           : JAL, zero, LOC_000a3
+0001164c  LOC_00081: SLLI, a4, s4, 20
+00011650           : BNE, a4, zero, LOC_000a3
+00011654           : LW s0, 8(s2)
+00011658           : ADD, s5, s6, s5
+0001165c           : ORI, s5, s5, 1
+00011660           : SW, s5, 4(s0)
+00011664           : JAL, zero, LOC_000a4
+00011668  LOC_00082: SW, s7, 60(gp)
+0001166c           : JAL, zero, LOC_000a5
+00011670  LOC_00085: ADDI, s0, s7, 0
+00011674           : JAL, zero, LOC_000a4
+00011678  LOC_00086: ADDI, a5, zero, 1
+0001167c           : SW, a5, 4(s7)
+00011680           : JAL, zero, LOC_00097
+00011684  LOC_000a1: ADDI, a4, zero, 340
+00011688           : BLTU, a4, a5, LOC_000a6
+0001168c           : SRLI, a5, a0, 15
+00011690           : ADDI, a3, a5, 120
+00011694           : ADDI, a1, a5, 119
+00011698           : SLLI, a3, a3, 3
+0001169c           : JAL, zero, LOC_00095
+000116a0  LOC_000a2: ADDI, a4, zero, 1364
+000116a4           : BLTU, a4, a5, LOC_000a7
+000116a8           : SRLI, a5, s1, 18
+000116ac           : ADDI, a2, a5, 125
+000116b0           : ADDI, a0, a5, 124
+000116b4           : SLLI, a3, a2, 3
+000116b8           : JAL, zero, LOC_00078
+000116bc  LOC_00084: ADDI, s9, s9, -8
+000116c0           : ADD, s5, s5, s9
+000116c4           : SUB, s5, s5, s7
+000116c8           : ADDI, s4, zero, 0
+000116cc           : JAL, zero, LOC_000a0
+000116d0  LOC_00087: ADDI, a1, s0, 8
+000116d4           : ADDI, a0, s3, 0
+000116d8           : JAL, ra, _free_r
+000116dc           : LW s0, 8(s2)
+000116e0           : LW a1, 0(s8)
+000116e4           : LW s5, 4(s0)
+000116e8           : JAL, zero, LOC_000a4
+000116ec  LOC_000a6: ADDI, a4, zero, 1364
+000116f0           : BLTU, a4, a5, LOC_000a8
+000116f4           : SRLI, a5, a0, 18
+000116f8           : ADDI, a3, a5, 125
+000116fc           : ADDI, a1, a5, 124
+00011700           : SLLI, a3, a3, 3
+00011704           : JAL, zero, LOC_00095
+00011708  LOC_000a7: ADDI, a3, zero, 1016
+0001170c           : ADDI, a2, zero, 127
+00011710           : ADDI, a0, zero, 126
+00011714           : JAL, zero, LOC_00078
+00011718  LOC_000a8: ADDI, a3, zero, 1016
+0001171c           : ADDI, a1, zero, 126
+00011720           : JAL, zero, LOC_00095
+00011724  LOC_00098: LW a5, 4(s2)
+00011728           : JAL, zero, LOC_000a9
+0001172c     memchr: ANDI, a5, a0, 3
+00011730           : ANDI, a3, a1, 255
+00011734           : BEQ, a5, zero, LOC_000aa
+00011738           : ADDI, a5, a2, -1
+0001173c           : BEQ, a2, zero, LOC_000ab
+00011740           : ADDI, a2, zero, -1
+00011744           : JAL, zero, LOC_000ac
+00011748  LOC_000ae: ADDI, a0, a0, 1
+0001174c           : ANDI, a4, a0, 3
+00011750           : BEQ, a4, zero, LOC_000ad
+00011754           : ADDI, a5, a5, -1
+00011758           : BEQ, a5, a2, LOC_000ab
+0001175c  LOC_000ac: LBU a4, 0(a0)
+00011760           : BNE, a4, a3, LOC_000ae
+00011764           : JALR zero, 0(ra)
+00011768  LOC_000aa: ADDI, a5, a2, 0
+0001176c  LOC_000ad: ADDI, a4, zero, 3
+00011770           : BLTU, a4, a5, LOC_000af
+00011774           : BNE, a5, zero, LOC_000b0
+00011778  LOC_000ab: ADDI, a0, zero, 0
+0001177c           : JALR zero, 0(ra)
+00011780  LOC_000b0: ADD, a5, a0, a5
+00011784           : JAL, zero, LOC_000b1
+00011788  LOC_000b2: ADDI, a0, a0, 1
+0001178c           : BEQ, a5, a0, LOC_000ab
+00011790  LOC_000b1: LBU a4, 0(a0)
+00011794           : BNE, a4, a3, LOC_000b2
+00011798           : JALR zero, 0(ra)
+0001179c  LOC_000af: ANDI, a1, a1, 255
+000117a0           : SLLI, a7, a1, 8
+000117a4           : OR, a1, a7, a1
+000117a8           : SLLI, a7, a1, 16
+000117ac           : OR, a7, a7, a1
+000117b0           : LUI, a6, -16842752
+000117b4           : LUI, a1, -2139062272
+000117b8           : ADDI, a6, a6, -257
+000117bc           : ADDI, a1, a1, 128
+000117c0           : ADDI, t1, zero, 3
+000117c4  LOC_000b3: LW a4, 0(a0)
+000117c8           : XOR, a4, a7, a4
+000117cc           : ADD, a2, a4, a6
+000117d0           : XORI, a4, a4, -1
+000117d4           : AND, a4, a2, a4
+000117d8           : AND, a4, a4, a1
+000117dc           : BNE, a4, zero, LOC_000b0
+000117e0           : ADDI, a5, a5, -4
+000117e4           : ADDI, a0, a0, 4
+000117e8           : BLTU, t1, a5, LOC_000b3
+000117ec           : BNE, a5, zero, LOC_000b0
+000117f0           : JAL, zero, LOC_000ab
+000117f4     memcpy: XOR, a5, a1, a0
+000117f8           : ANDI, a5, a5, 3
+000117fc           : ADD, a7, a0, a2
+00011800           : BNE, a5, zero, LOC_000b4
+00011804           : ADDI, a5, zero, 3
+00011808           : BGEU, a5, a2, LOC_000b4
+0001180c           : ANDI, a5, a0, 3
+00011810           : ADDI, a4, a0, 0
+00011814           : BNE, a5, zero, LOC_000b5
+00011818  LOC_000bb: ANDI, a2, a7, -4
+0001181c           : ADDI, a5, a2, -32
+00011820           : BLTU, a4, a5, LOC_000b6
+00011824  LOC_000bc: BGEU, a4, a2, LOC_000b7
+00011828           : ADDI, a3, a1, 0
+0001182c           : ADDI, a5, a4, 0
+00011830  LOC_000b8: LW a6, 0(a3)
+00011834           : ADDI, a5, a5, 4
+00011838           : ADDI, a3, a3, 4
+0001183c           : SW, a6, -4(a5)
+00011840           : BLTU, a5, a2, LOC_000b8
+00011844           : ADDI, a5, a2, -1
+00011848           : SUB, a5, a5, a4
+0001184c           : ANDI, a5, a5, -4
+00011850           : ADDI, a5, a5, 4
+00011854           : ADD, a4, a4, a5
+00011858           : ADD, a1, a1, a5
+0001185c  LOC_000b7: BLTU, a4, a7, LOC_000b9
+00011860  LOC_000ba: JALR zero, 0(ra)
+00011864  LOC_000b4: ADDI, a4, a0, 0
+00011868           : BGEU, a0, a7, LOC_000ba
+0001186c  LOC_000b9: LBU a5, 0(a1)
+00011870           : ADDI, a4, a4, 1
+00011874           : ADDI, a1, a1, 1
+00011878           : SB, a5, -1(a4)
+0001187c           : BLTU, a4, a7, LOC_000b9
+00011880           : JALR zero, 0(ra)
+00011884  LOC_000b5: LBU a3, 0(a1)
+00011888           : ADDI, a4, a4, 1
+0001188c           : ANDI, a5, a4, 3
+00011890           : SB, a3, -1(a4)
+00011894           : ADDI, a1, a1, 1
+00011898           : BEQ, a5, zero, LOC_000bb
+0001189c           : LBU a3, 0(a1)
+000118a0           : ADDI, a4, a4, 1
+000118a4           : ANDI, a5, a4, 3
+000118a8           : SB, a3, -1(a4)
+000118ac           : ADDI, a1, a1, 1
+000118b0           : BNE, a5, zero, LOC_000b5
+000118b4           : JAL, zero, LOC_000bb
+000118b8  LOC_000b6: LW a3, 4(a1)
+000118bc           : LW t0, 0(a1)
+000118c0           : LW t6, 8(a1)
+000118c4           : LW t5, 12(a1)
+000118c8           : LW t4, 16(a1)
+000118cc           : LW t3, 20(a1)
+000118d0           : LW t1, 24(a1)
+000118d4           : LW a6, 28(a1)
+000118d8           : SW, a3, 4(a4)
+000118dc           : LW a3, 32(a1)
+000118e0           : SW, t0, 0(a4)
+000118e4           : SW, t6, 8(a4)
+000118e8           : SW, t5, 12(a4)
+000118ec           : SW, t4, 16(a4)
+000118f0           : SW, t3, 20(a4)
+000118f4           : SW, t1, 24(a4)
+000118f8           : SW, a6, 28(a4)
+000118fc           : SW, a3, 32(a4)
+00011900           : ADDI, a4, a4, 36
+00011904           : ADDI, a1, a1, 36
+00011908           : BLTU, a4, a5, LOC_000b6
+0001190c           : JAL, zero, LOC_000bc
+00011910    memmove: BGEU, a1, a0, LOC_000bd
+00011914           : ADD, a5, a1, a2
+00011918           : BGEU, a0, a5, LOC_000bd
+0001191c           : ADD, a4, a0, a2
+00011920           : BEQ, a2, zero, LOC_000be
+00011924  LOC_000bf: LBU a3, -1(a5)
+00011928           : ADDI, a5, a5, -1
+0001192c           : ADDI, a4, a4, -1
+00011930           : SB, a3, 0(a4)
+00011934           : BNE, a1, a5, LOC_000bf
+00011938           : JALR zero, 0(ra)
+0001193c  LOC_000bd: ADDI, a5, zero, 15
+00011940           : BLTU, a5, a2, LOC_000c0
+00011944           : ADDI, a5, a0, 0
+00011948  LOC_000c7: ADDI, a3, a2, -1
+0001194c           : BEQ, a2, zero, LOC_000c1
+00011950  LOC_000c8: ADDI, a3, a3, 1
+00011954           : ADD, a3, a5, a3
+00011958  LOC_000c2: LBU a4, 0(a1)
+0001195c           : ADDI, a5, a5, 1
+00011960           : ADDI, a1, a1, 1
+00011964           : SB, a4, -1(a5)
+00011968           : BNE, a5, a3, LOC_000c2
+0001196c           : JALR zero, 0(ra)
+00011970  LOC_000c0: OR, a5, a1, a0
+00011974           : ANDI, a5, a5, 3
+00011978           : BNE, a5, zero, LOC_000c3
+0001197c           : ADDI, a7, a2, -16
+00011980           : ANDI, a7, a7, -16
+00011984           : ADDI, a7, a7, 16
+00011988           : ADD, a6, a0, a7
+0001198c           : ADDI, a4, a1, 0
+00011990           : ADDI, a5, a0, 0
+00011994  LOC_000c4: LW a3, 0(a4)
+00011998           : ADDI, a4, a4, 16
+0001199c           : ADDI, a5, a5, 16
+000119a0           : SW, a3, -16(a5)
+000119a4           : LW a3, -12(a4)
+000119a8           : SW, a3, -12(a5)
+000119ac           : LW a3, -8(a4)
+000119b0           : SW, a3, -8(a5)
+000119b4           : LW a3, -4(a4)
+000119b8           : SW, a3, -4(a5)
+000119bc           : BNE, a6, a5, LOC_000c4
+000119c0           : ANDI, a4, a2, 12
+000119c4           : ADD, a1, a1, a7
+000119c8           : ANDI, a6, a2, 15
+000119cc           : BEQ, a4, zero, LOC_000c5
+000119d0           : ADDI, a4, a1, 0
+000119d4           : ADDI, a7, a5, 0
+000119d8           : ADDI, t3, zero, 3
+000119dc  LOC_000c6: LW t1, 0(a4)
+000119e0           : ADDI, a4, a4, 4
+000119e4           : SUB, a3, a6, a4
+000119e8           : SW, t1, 0(a7)
+000119ec           : ADD, a3, a1, a3
+000119f0           : ADDI, a7, a7, 4
+000119f4           : BLTU, t3, a3, LOC_000c6
+000119f8           : ADDI, a4, a6, -4
+000119fc           : ANDI, a4, a4, -4
+00011a00           : ADDI, a4, a4, 4
+00011a04           : ANDI, a2, a2, 3
+00011a08           : ADD, a5, a5, a4
+00011a0c           : ADD, a1, a1, a4
+00011a10           : JAL, zero, LOC_000c7
+00011a14  LOC_000be: JALR zero, 0(ra)
+00011a18  LOC_000c3: ADDI, a3, a2, -1
+00011a1c           : ADDI, a5, a0, 0
+00011a20           : JAL, zero, LOC_000c8
+00011a24  LOC_000c1: JALR zero, 0(ra)
+00011a28  LOC_000c5: ADDI, a2, a6, 0
+00011a2c           : JAL, zero, LOC_000c7
+00011a30 __malloc_lock: JALR zero, 0(ra)
+00011a34 __malloc_unlock: JALR zero, 0(ra)
+00011a38 _realloc_r: ADDI, sp, sp, -48
+00011a3c           : SW, s2, 32(sp)
+00011a40           : SW, ra, 44(sp)
+00011a44           : SW, s0, 40(sp)
+00011a48           : SW, s1, 36(sp)
+00011a4c           : SW, s3, 28(sp)
+00011a50           : SW, s4, 24(sp)
+00011a54           : SW, s5, 20(sp)
+00011a58           : SW, s6, 16(sp)
+00011a5c           : SW, s7, 12(sp)
+00011a60           : SW, s8, 8(sp)
+00011a64           : ADDI, s2, a2, 0
+00011a68           : BEQ, a1, zero, LOC_000c9
+00011a6c           : ADDI, s0, a1, 0
+00011a70           : ADDI, s3, a0, 0
+00011a74           : JAL, ra, __malloc_lock
+00011a78           : ADDI, s1, s2, 11
+00011a7c           : ADDI, a5, zero, 22
+00011a80           : BGEU, a5, s1, LOC_000ca
+00011a84           : ANDI, s1, s1, -8
+00011a88           : ADDI, a4, s1, 0
+00011a8c           : BLT, s1, zero, LOC_000cb
+00011a90           : BLTU, s1, s2, LOC_000cb
+00011a94  LOC_000d8: LW a5, -4(s0)
+00011a98           : ADDI, s5, s0, -8
+00011a9c           : ANDI, s4, a5, -4
+00011aa0           : ADD, s6, s5, s4
+00011aa4           : BGE, s4, a4, LOC_000cc
+00011aa8           : ADDI, s7, gp, -984
+00011aac           : LW a2, 8(s7)
+00011ab0           : LW a3, 4(s6)
+00011ab4           : BEQ, a2, s6, LOC_000cd
+00011ab8           : ANDI, a2, a3, -2
+00011abc           : ADD, a2, s6, a2
+00011ac0           : LW a2, 4(a2)
+00011ac4           : ANDI, a2, a2, 1
+00011ac8           : BNE, a2, zero, LOC_000ce
+00011acc           : ANDI, a3, a3, -4
+00011ad0           : ADD, a2, s4, a3
+00011ad4           : BGE, a2, a4, LOC_000cf
+00011ad8           : ANDI, a5, a5, 1
+00011adc           : BNE, a5, zero, LOC_000d0
+00011ae0           : LW s8, -8(s0)
+00011ae4           : SUB, s8, s5, s8
+00011ae8           : LW a5, 4(s8)
+00011aec           : ANDI, a5, a5, -4
+00011af0           : ADD, a3, a5, a3
+00011af4           : ADD, s7, a3, s4
+00011af8           : BGE, s7, a4, LOC_000d1
+00011afc  LOC_000da: ADD, s7, s4, a5
+00011b00           : BGE, s7, a4, LOC_000d2
+00011b04  LOC_000d0: ADDI, a1, s2, 0
+00011b08           : ADDI, a0, s3, 0
+00011b0c           : JAL, ra, _malloc_r
+00011b10           : ADDI, s2, a0, 0
+00011b14           : BEQ, a0, zero, LOC_000d3
+00011b18           : LW a5, -4(s0)
+00011b1c           : ADDI, a4, a0, -8
+00011b20           : ANDI, a5, a5, -2
+00011b24           : ADD, a5, s5, a5
+00011b28           : BEQ, a5, a4, LOC_000d4
+00011b2c           : ADDI, a2, s4, -4
+00011b30           : ADDI, a5, zero, 36
+00011b34           : BLTU, a5, a2, LOC_000d5
+00011b38           : ADDI, a4, zero, 19
+00011b3c           : LW a3, 0(s0)
+00011b40           : BLTU, a4, a2, LOC_000d6
+00011b44           : ADDI, a5, a0, 0
+00011b48           : ADDI, a4, s0, 0
+00011b4c  LOC_000e1: SW, a3, 0(a5)
+00011b50           : LW a3, 4(a4)
+00011b54           : SW, a3, 4(a5)
+00011b58           : LW a4, 8(a4)
+00011b5c           : SW, a4, 8(a5)
+00011b60  LOC_000e5: ADDI, a1, s0, 0
+00011b64           : ADDI, a0, s3, 0
+00011b68           : JAL, ra, _free_r
+00011b6c  LOC_000d3: ADDI, a0, s3, 0
+00011b70           : JAL, ra, __malloc_unlock
+00011b74           : JAL, zero, LOC_000d7
+00011b78  LOC_000ca: ADDI, s1, zero, 16
+00011b7c           : ADDI, a4, zero, 16
+00011b80           : BGEU, s1, s2, LOC_000d8
+00011b84  LOC_000cb: ADDI, a5, zero, 12
+00011b88           : SW, a5, 0(s3)
+00011b8c           : ADDI, s2, zero, 0
+00011b90  LOC_000d7: LW ra, 44(sp)
+00011b94           : LW s0, 40(sp)
+00011b98           : LW s1, 36(sp)
+00011b9c           : LW s3, 28(sp)
+00011ba0           : LW s4, 24(sp)
+00011ba4           : LW s5, 20(sp)
+00011ba8           : LW s6, 16(sp)
+00011bac           : LW s7, 12(sp)
+00011bb0           : LW s8, 8(sp)
+00011bb4           : ADDI, a0, s2, 0
+00011bb8           : LW s2, 32(sp)
+00011bbc           : ADDI, sp, sp, 48
+00011bc0           : JALR zero, 0(ra)
+00011bc4  LOC_000cf: LW a5, 12(s6)
+00011bc8           : LW a4, 8(s6)
+00011bcc           : ADDI, s4, a2, 0
+00011bd0           : ADD, s6, s5, a2
+00011bd4           : SW, a5, 12(a4)
+00011bd8           : SW, a4, 8(a5)
+00011bdc  LOC_000cc: LW a5, 4(s5)
+00011be0           : SUB, a4, s4, s1
+00011be4           : ADDI, a3, zero, 15
+00011be8           : ANDI, a5, a5, 1
+00011bec           : BLTU, a3, a4, LOC_000d9
+00011bf0           : OR, a5, s4, a5
+00011bf4           : SW, a5, 4(s5)
+00011bf8           : LW a5, 4(s6)
+00011bfc           : ORI, a5, a5, 1
+00011c00           : SW, a5, 4(s6)
+00011c04  LOC_000db: ADDI, a0, s3, 0
+00011c08           : JAL, ra, __malloc_unlock
+00011c0c           : ADDI, s2, s0, 0
+00011c10           : JAL, zero, LOC_000d7
+00011c14  LOC_000ce: ANDI, a5, a5, 1
+00011c18           : BNE, a5, zero, LOC_000d0
+00011c1c           : LW s8, -8(s0)
+00011c20           : SUB, s8, s5, s8
+00011c24           : LW a5, 4(s8)
+00011c28           : ANDI, a5, a5, -4
+00011c2c           : JAL, zero, LOC_000da
+00011c30  LOC_000c9: LW s0, 40(sp)
+00011c34           : LW ra, 44(sp)
+00011c38           : LW s1, 36(sp)
+00011c3c           : LW s2, 32(sp)
+00011c40           : LW s3, 28(sp)
+00011c44           : LW s4, 24(sp)
+00011c48           : LW s5, 20(sp)
+00011c4c           : LW s6, 16(sp)
+00011c50           : LW s7, 12(sp)
+00011c54           : LW s8, 8(sp)
+00011c58           : ADDI, a1, a2, 0
+00011c5c           : ADDI, sp, sp, 48
+00011c60           : JAL, zero, _malloc_r
+00011c64  LOC_000d9: OR, a5, a5, s1
+00011c68           : SW, a5, 4(s5)
+00011c6c           : ADD, a1, s5, s1
+00011c70           : ORI, a4, a4, 1
+00011c74           : SW, a4, 4(a1)
+00011c78           : LW a5, 4(s6)
+00011c7c           : ADDI, a1, a1, 8
+00011c80           : ADDI, a0, s3, 0
+00011c84           : ORI, a5, a5, 1
+00011c88           : SW, a5, 4(s6)
+00011c8c           : JAL, ra, _free_r
+00011c90           : JAL, zero, LOC_000db
+00011c94  LOC_000cd: ANDI, a3, a3, -4
+00011c98           : ADD, a2, s4, a3
+00011c9c           : ADDI, a1, s1, 16
+00011ca0           : BGE, a2, a1, LOC_000dc
+00011ca4           : ANDI, a5, a5, 1
+00011ca8           : BNE, a5, zero, LOC_000d0
+00011cac           : LW s8, -8(s0)
+00011cb0           : SUB, s8, s5, s8
+00011cb4           : LW a5, 4(s8)
+00011cb8           : ANDI, a5, a5, -4
+00011cbc           : ADD, a3, a5, a3
+00011cc0           : ADD, s6, a3, s4
+00011cc4           : BLT, s6, a1, LOC_000da
+00011cc8           : LW a5, 12(s8)
+00011ccc           : LW a4, 8(s8)
+00011cd0           : ADDI, a2, s4, -4
+00011cd4           : ADDI, a3, zero, 36
+00011cd8           : SW, a5, 12(a4)
+00011cdc           : SW, a4, 8(a5)
+00011ce0           : ADDI, s2, s8, 8
+00011ce4           : BLTU, a3, a2, LOC_000dd
+00011ce8           : ADDI, a1, zero, 19
+00011cec           : LW a4, 0(s0)
+00011cf0           : ADDI, a5, s2, 0
+00011cf4           : BGEU, a1, a2, LOC_000de
+00011cf8           : SW, a4, 8(s8)
+00011cfc           : LW a4, 4(s0)
+00011d00           : ADDI, a5, zero, 27
+00011d04           : SW, a4, 12(s8)
+00011d08           : BLTU, a5, a2, LOC_000df
+00011d0c           : LW a4, 8(s0)
+00011d10           : ADDI, a5, s8, 16
+00011d14           : ADDI, s0, s0, 8
+00011d18  LOC_000de: SW, a4, 0(a5)
+00011d1c           : LW a4, 4(s0)
+00011d20           : SW, a4, 4(a5)
+00011d24           : LW a4, 8(s0)
+00011d28           : SW, a4, 8(a5)
+00011d2c  LOC_000ea: ADD, a4, s8, s1
+00011d30           : SUB, a5, s6, s1
+00011d34           : SW, a4, 8(s7)
+00011d38           : ORI, a5, a5, 1
+00011d3c           : SW, a5, 4(a4)
+00011d40           : LW a5, 4(s8)
+00011d44           : ADDI, a0, s3, 0
+00011d48           : ANDI, a5, a5, 1
+00011d4c           : OR, s1, a5, s1
+00011d50           : SW, s1, 4(s8)
+00011d54           : JAL, ra, __malloc_unlock
+00011d58           : JAL, zero, LOC_000d7
+00011d5c  LOC_000d6: SW, a3, 0(a0)
+00011d60           : LW a3, 4(s0)
+00011d64           : ADDI, a4, zero, 27
+00011d68           : SW, a3, 4(a0)
+00011d6c           : BLTU, a4, a2, LOC_000e0
+00011d70           : LW a3, 8(s0)
+00011d74           : ADDI, a4, s0, 8
+00011d78           : ADDI, a5, a0, 8
+00011d7c           : JAL, zero, LOC_000e1
+00011d80  LOC_000dc: ADD, s5, s5, s1
+00011d84           : SUB, a5, a2, s1
+00011d88           : SW, s5, 8(s7)
+00011d8c           : ORI, a5, a5, 1
+00011d90           : SW, a5, 4(s5)
+00011d94           : LW a5, -4(s0)
+00011d98           : ADDI, a0, s3, 0
+00011d9c           : ADDI, s2, s0, 0
+00011da0           : ANDI, a5, a5, 1
+00011da4           : OR, s1, a5, s1
+00011da8           : SW, s1, -4(s0)
+00011dac           : JAL, ra, __malloc_unlock
+00011db0           : JAL, zero, LOC_000d7
+00011db4  LOC_000d4: LW a5, -4(a0)
+00011db8           : ANDI, a5, a5, -4
+00011dbc           : ADD, s4, s4, a5
+00011dc0           : ADD, s6, s5, s4
+00011dc4           : JAL, zero, LOC_000cc
+00011dc8  LOC_000d2: LW a5, 12(s8)
+00011dcc           : LW a4, 8(s8)
+00011dd0           : ADDI, a2, s4, -4
+00011dd4           : ADDI, a3, zero, 36
+00011dd8           : SW, a5, 12(a4)
+00011ddc           : SW, a4, 8(a5)
+00011de0           : ADDI, s2, s8, 8
+00011de4           : ADD, s6, s8, s7
+00011de8           : BLTU, a3, a2, LOC_000e2
+00011dec           : ADDI, a1, zero, 19
+00011df0           : LW a4, 0(s0)
+00011df4           : ADDI, a5, s2, 0
+00011df8           : BGEU, a1, a2, LOC_000e3
+00011dfc           : SW, a4, 8(s8)
+00011e00           : LW a4, 4(s0)
+00011e04           : ADDI, a5, zero, 27
+00011e08           : SW, a4, 12(s8)
+00011e0c           : BLTU, a5, a2, LOC_000e4
+00011e10           : LW a4, 8(s0)
+00011e14  LOC_000e6: ADDI, a5, s8, 16
+00011e18           : ADDI, s0, s0, 8
+00011e1c  LOC_000e3: SW, a4, 0(a5)
+00011e20           : LW a4, 4(s0)
+00011e24           : ADDI, s4, s7, 0
+00011e28           : ADDI, s5, s8, 0
+00011e2c           : SW, a4, 4(a5)
+00011e30           : LW a4, 8(s0)
+00011e34           : ADDI, s0, s2, 0
+00011e38           : SW, a4, 8(a5)
+00011e3c           : JAL, zero, LOC_000cc
+00011e40  LOC_000d5: ADDI, a1, s0, 0
+00011e44           : JAL, ra, memmove
+00011e48           : JAL, zero, LOC_000e5
+00011e4c  LOC_000d1: LW a5, 12(s6)
+00011e50           : LW a4, 8(s6)
+00011e54           : ADDI, a2, s4, -4
+00011e58           : ADDI, a3, zero, 36
+00011e5c           : SW, a5, 12(a4)
+00011e60           : SW, a4, 8(a5)
+00011e64           : LW a4, 8(s8)
+00011e68           : LW a5, 12(s8)
+00011e6c           : ADDI, s2, s8, 8
+00011e70           : ADD, s6, s8, s7
+00011e74           : SW, a5, 12(a4)
+00011e78           : SW, a4, 8(a5)
+00011e7c           : BLTU, a3, a2, LOC_000e2
+00011e80           : ADDI, a3, zero, 19
+00011e84           : LW a4, 0(s0)
+00011e88           : ADDI, a5, s2, 0
+00011e8c           : BGEU, a3, a2, LOC_000e3
+00011e90           : SW, a4, 8(s8)
+00011e94           : LW a4, 4(s0)
+00011e98           : ADDI, a5, zero, 27
+00011e9c           : SW, a4, 12(s8)
+00011ea0           : LW a4, 8(s0)
+00011ea4           : BGEU, a5, a2, LOC_000e6
+00011ea8           : SW, a4, 16(s8)
+00011eac           : LW a4, 12(s0)
+00011eb0           : ADDI, a5, zero, 36
+00011eb4           : SW, a4, 20(s8)
+00011eb8           : LW a4, 16(s0)
+00011ebc           : BEQ, a2, a5, LOC_000e7
+00011ec0  LOC_000e9: ADDI, a5, s8, 24
+00011ec4           : ADDI, s0, s0, 16
+00011ec8           : JAL, zero, LOC_000e3
+00011ecc  LOC_000e2: ADDI, a1, s0, 0
+00011ed0           : ADDI, a0, s2, 0
+00011ed4           : JAL, ra, memmove
+00011ed8           : ADDI, s0, s2, 0
+00011edc           : ADDI, s4, s7, 0
+00011ee0           : ADDI, s5, s8, 0
+00011ee4           : JAL, zero, LOC_000cc
+00011ee8  LOC_000e0: LW a4, 8(s0)
+00011eec           : SW, a4, 8(a0)
+00011ef0           : LW a4, 12(s0)
+00011ef4           : SW, a4, 12(a0)
+00011ef8           : LW a3, 16(s0)
+00011efc           : BEQ, a2, a5, LOC_000e8
+00011f00           : ADDI, a4, s0, 16
+00011f04           : ADDI, a5, a0, 16
+00011f08           : JAL, zero, LOC_000e1
+00011f0c  LOC_000e4: LW a5, 8(s0)
+00011f10           : SW, a5, 16(s8)
+00011f14           : LW a5, 12(s0)
+00011f18           : SW, a5, 20(s8)
+00011f1c           : LW a4, 16(s0)
+00011f20           : BNE, a2, a3, LOC_000e9
+00011f24  LOC_000e7: SW, a4, 24(s8)
+00011f28           : LW a4, 20(s0)
+00011f2c           : ADDI, a5, s8, 32
+00011f30           : ADDI, s0, s0, 24
+00011f34           : SW, a4, 28(s8)
+00011f38           : LW a4, 0(s0)
+00011f3c           : JAL, zero, LOC_000e3
+00011f40  LOC_000e8: SW, a3, 16(a0)
+00011f44           : LW a3, 20(s0)
+00011f48           : ADDI, a4, s0, 24
+00011f4c           : ADDI, a5, a0, 24
+00011f50           : SW, a3, 20(a0)
+00011f54           : LW a3, 24(s0)
+00011f58           : JAL, zero, LOC_000e1
+00011f5c  LOC_000dd: ADDI, a1, s0, 0
+00011f60           : ADDI, a0, s2, 0
+00011f64           : JAL, ra, memmove
+00011f68           : JAL, zero, LOC_000ea
+00011f6c  LOC_000df: LW a5, 8(s0)
+00011f70           : SW, a5, 16(s8)
+00011f74           : LW a5, 12(s0)
+00011f78           : SW, a5, 20(s8)
+00011f7c           : LW a4, 16(s0)
+00011f80           : BEQ, a2, a3, LOC_000eb
+00011f84           : ADDI, a5, s8, 24
+00011f88           : ADDI, s0, s0, 16
+00011f8c           : JAL, zero, LOC_000de
+00011f90  LOC_000eb: SW, a4, 24(s8)
+00011f94           : LW a4, 20(s0)
+00011f98           : ADDI, a5, s8, 32
+00011f9c           : ADDI, s0, s0, 24
+00011fa0           : SW, a4, 28(s8)
+00011fa4           : LW a4, 0(s0)
+00011fa8           : JAL, zero, LOC_000de
+00011fac    _sbrk_r: ADDI, sp, sp, -16
+00011fb0           : SW, s0, 8(sp)
+00011fb4           : SW, s1, 4(sp)
+00011fb8           : ADDI, s0, a0, 0
+00011fbc           : ADDI, a0, a1, 0
+00011fc0           : SW, ra, 12(sp)
+00011fc4           : SW, zero, 80(gp)
+00011fc8           : JAL, ra, _sbrk
+00011fcc           : ADDI, a5, zero, -1
+00011fd0           : BEQ, a0, a5, LOC_000ec
+00011fd4  LOC_000ed: LW ra, 12(sp)
+00011fd8           : LW s0, 8(sp)
+00011fdc           : LW s1, 4(sp)
+00011fe0           : ADDI, sp, sp, 16
+00011fe4           : JALR zero, 0(ra)
+00011fe8  LOC_000ec: LW a5, 80(gp)
+00011fec           : BEQ, a5, zero, LOC_000ed
+00011ff0           : LW ra, 12(sp)
+00011ff4           : SW, a5, 0(s0)
+00011ff8           : LW s0, 8(sp)
+00011ffc           : LW s1, 4(sp)
+00012000           : ADDI, sp, sp, 16
+00012004           : JALR zero, 0(ra)
+00012008    __sread: ADDI, sp, sp, -16
+0001200c           : SW, s0, 8(sp)
+00012010           : ADDI, s0, a1, 0
+00012014           : LH a1, 14(a1)
+00012018           : SW, ra, 12(sp)
+0001201c           : JAL, ra, _read_r
+00012020           : BLT, a0, zero, LOC_000ee
+00012024           : LW a5, 80(s0)
+00012028           : LW ra, 12(sp)
+0001202c           : ADD, a5, a5, a0
+00012030           : SW, a5, 80(s0)
+00012034           : LW s0, 8(sp)
+00012038           : ADDI, sp, sp, 16
+0001203c           : JALR zero, 0(ra)
+00012040  LOC_000ee: LHU a5, 12(s0)
+00012044           : LUI, a4, -4096
+00012048           : ADDI, a4, a4, -1
+0001204c           : AND, a5, a5, a4
+00012050           : LW ra, 12(sp)
+00012054           : SH, a5, 12(s0)
+00012058           : LW s0, 8(sp)
+0001205c           : ADDI, sp, sp, 16
+00012060           : JALR zero, 0(ra)
+00012064 __seofread: ADDI, a0, zero, 0
+00012068           : JALR zero, 0(ra)
+0001206c   __swrite: LH a5, 12(a1)
+00012070           : ADDI, sp, sp, -32
+00012074           : SW, s0, 24(sp)
+00012078           : SW, s1, 20(sp)
+0001207c           : SW, s2, 16(sp)
+00012080           : SW, s3, 12(sp)
+00012084           : SW, ra, 28(sp)
+00012088           : ANDI, a4, a5, 256
+0001208c           : ADDI, s0, a1, 0
+00012090           : ADDI, s1, a0, 0
+00012094           : LH a1, 14(a1)
+00012098           : ADDI, s2, a2, 0
+0001209c           : ADDI, s3, a3, 0
+000120a0           : BNE, a4, zero, LOC_000ef
+000120a4  LOC_000f0: LUI, a4, -4096
+000120a8           : ADDI, a4, a4, -1
+000120ac           : AND, a5, a5, a4
+000120b0           : SH, a5, 12(s0)
+000120b4           : LW s0, 24(sp)
+000120b8           : LW ra, 28(sp)
+000120bc           : ADDI, a3, s3, 0
+000120c0           : ADDI, a2, s2, 0
+000120c4           : LW s3, 12(sp)
+000120c8           : LW s2, 16(sp)
+000120cc           : ADDI, a0, s1, 0
+000120d0           : LW s1, 20(sp)
+000120d4           : ADDI, sp, sp, 32
+000120d8           : JAL, zero, _write_r
+000120dc  LOC_000ef: ADDI, a3, zero, 2
+000120e0           : ADDI, a2, zero, 0
+000120e4           : JAL, ra, _lseek_r
+000120e8           : LH a5, 12(s0)
+000120ec           : LH a1, 14(s0)
+000120f0           : JAL, zero, LOC_000f0
+000120f4    __sseek: ADDI, sp, sp, -16
+000120f8           : SW, s0, 8(sp)
+000120fc           : ADDI, s0, a1, 0
+00012100           : LH a1, 14(a1)
+00012104           : SW, ra, 12(sp)
+00012108           : JAL, ra, _lseek_r
+0001210c           : ADDI, a5, zero, -1
+00012110           : BEQ, a0, a5, LOC_000f1
+00012114           : LHU a5, 12(s0)
+00012118           : LUI, a4, 4096
+0001211c           : LW ra, 12(sp)
+00012120           : OR, a5, a5, a4
+00012124           : SW, a0, 80(s0)
+00012128           : SH, a5, 12(s0)
+0001212c           : LW s0, 8(sp)
+00012130           : ADDI, sp, sp, 16
+00012134           : JALR zero, 0(ra)
+00012138  LOC_000f1: LHU a5, 12(s0)
+0001213c           : LUI, a4, -4096
+00012140           : ADDI, a4, a4, -1
+00012144           : AND, a5, a5, a4
+00012148           : LW ra, 12(sp)
+0001214c           : SH, a5, 12(s0)
+00012150           : LW s0, 8(sp)
+00012154           : ADDI, sp, sp, 16
+00012158           : JALR zero, 0(ra)
+0001215c   __sclose: LH a1, 14(a1)
+00012160           : JAL, zero, _close_r
+00012164   _write_r: ADDI, sp, sp, -16
+00012168           : ADDI, a4, a1, 0
+0001216c           : SW, s0, 8(sp)
+00012170           : SW, s1, 4(sp)
+00012174           : ADDI, a1, a2, 0
+00012178           : ADDI, s0, a0, 0
+0001217c           : ADDI, a2, a3, 0
+00012180           : ADDI, a0, a4, 0
+00012184           : SW, ra, 12(sp)
+00012188           : SW, zero, 80(gp)
+0001218c           : JAL, ra, _write
+00012190           : ADDI, a5, zero, -1
+00012194           : BEQ, a0, a5, LOC_000f2
+00012198  LOC_000f3: LW ra, 12(sp)
+0001219c           : LW s0, 8(sp)
+000121a0           : LW s1, 4(sp)
+000121a4           : ADDI, sp, sp, 16
+000121a8           : JALR zero, 0(ra)
+000121ac  LOC_000f2: LW a5, 80(gp)
+000121b0           : BEQ, a5, zero, LOC_000f3
+000121b4           : LW ra, 12(sp)
+000121b8           : SW, a5, 0(s0)
+000121bc           : LW s0, 8(sp)
+000121c0           : LW s1, 4(sp)
+000121c4           : ADDI, sp, sp, 16
+000121c8           : JALR zero, 0(ra)
+000121cc __swsetup_r: LW a5, 56(gp)
+000121d0           : ADDI, sp, sp, -16
+000121d4           : SW, s0, 8(sp)
+000121d8           : SW, s1, 4(sp)
+000121dc           : SW, ra, 12(sp)
+000121e0           : ADDI, s1, a0, 0
+000121e4           : ADDI, s0, a1, 0
+000121e8           : BEQ, a5, zero, LOC_000f4
+000121ec           : LW a4, 56(a5)
+000121f0           : BEQ, a4, zero, LOC_000f5
+000121f4  LOC_000f4: LH a4, 12(s0)
+000121f8           : SLLI, a5, a4, 16
+000121fc           : ANDI, a3, a4, 8
+00012200           : SRLI, a5, a5, 16
+00012204           : BEQ, a3, zero, LOC_000f6
+00012208  LOC_000fc: LW a3, 16(s0)
+0001220c           : BEQ, a3, zero, LOC_000f7
+00012210  LOC_000ff: ANDI, a2, a5, 1
+00012214           : BEQ, a2, zero, LOC_000f8
+00012218           : LW a2, 20(s0)
+0001221c           : SW, zero, 8(s0)
+00012220           : ADDI, a0, zero, 0
+00012224           : SUB, a2, zero, a2
+00012228           : SW, a2, 24(s0)
+0001222c           : BEQ, a3, zero, LOC_000f9
+00012230  LOC_000fb: LW ra, 12(sp)
+00012234           : LW s0, 8(sp)
+00012238           : LW s1, 4(sp)
+0001223c           : ADDI, sp, sp, 16
+00012240           : JALR zero, 0(ra)
+00012244  LOC_000f8: ANDI, a2, a5, 2
+00012248           : ADDI, a1, zero, 0
+0001224c           : BNE, a2, zero, LOC_000fa
+00012250           : LW a1, 20(s0)
+00012254  LOC_000fa: SW, a1, 8(s0)
+00012258           : ADDI, a0, zero, 0
+0001225c           : BNE, a3, zero, LOC_000fb
+00012260  LOC_000f9: ANDI, a5, a5, 128
+00012264           : BEQ, a5, zero, LOC_000fb
+00012268           : ORI, a4, a4, 64
+0001226c           : SH, a4, 12(s0)
+00012270           : ADDI, a0, zero, -1
+00012274           : JAL, zero, LOC_000fb
+00012278  LOC_000f5: ADDI, a0, a5, 0
+0001227c           : JAL, ra, __sinit
+00012280           : LH a4, 12(s0)
+00012284           : SLLI, a5, a4, 16
+00012288           : ANDI, a3, a4, 8
+0001228c           : SRLI, a5, a5, 16
+00012290           : BNE, a3, zero, LOC_000fc
+00012294  LOC_000f6: ANDI, a3, a5, 16
+00012298           : BEQ, a3, zero, LOC_000fd
+0001229c           : ANDI, a5, a5, 4
+000122a0           : BNE, a5, zero, LOC_000fe
+000122a4           : LW a3, 16(s0)
+000122a8  LOC_00102: ORI, a4, a4, 8
+000122ac           : SLLI, a5, a4, 16
+000122b0           : SH, a4, 12(s0)
+000122b4           : SRLI, a5, a5, 16
+000122b8           : BNE, a3, zero, LOC_000ff
+000122bc  LOC_000f7: ANDI, a2, a5, 640
+000122c0           : ADDI, a1, zero, 512
+000122c4           : BEQ, a2, a1, LOC_000ff
+000122c8           : ADDI, a1, s0, 0
+000122cc           : ADDI, a0, s1, 0
+000122d0           : JAL, ra, __smakebuf_r
+000122d4           : LH a4, 12(s0)
+000122d8           : LW a3, 16(s0)
+000122dc           : SLLI, a5, a4, 16
+000122e0           : SRLI, a5, a5, 16
+000122e4           : JAL, zero, LOC_000ff
+000122e8  LOC_000fe: LW a1, 48(s0)
+000122ec           : BEQ, a1, zero, LOC_00100
+000122f0           : ADDI, a5, s0, 64
+000122f4           : BEQ, a1, a5, LOC_00101
+000122f8           : ADDI, a0, s1, 0
+000122fc           : JAL, ra, _free_r
+00012300           : LH a4, 12(s0)
+00012304  LOC_00101: SW, zero, 48(s0)
+00012308  LOC_00100: LW a3, 16(s0)
+0001230c           : ANDI, a4, a4, -37
+00012310           : SW, zero, 4(s0)
+00012314           : SW, a3, 0(s0)
+00012318           : JAL, zero, LOC_00102
+0001231c  LOC_000fd: ADDI, a5, zero, 9
+00012320           : SW, a5, 0(s1)
+00012324           : ORI, a4, a4, 64
+00012328           : SH, a4, 12(s0)
+0001232c           : ADDI, a0, zero, -1
+00012330           : JAL, zero, LOC_000fb
+00012334 __register_exitproc: LW a4, 48(gp)
+00012338           : LW a5, 328(a4)
+0001233c           : BEQ, a5, zero, LOC_00103
+00012340  LOC_00107: LW a4, 4(a5)
+00012344           : ADDI, a6, zero, 31
+00012348           : BLT, a6, a4, LOC_00104
+0001234c           : SLLI, a6, a4, 2
+00012350           : BEQ, a0, zero, LOC_00105
+00012354           : ADD, t1, a5, a6
+00012358           : SW, a2, 136(t1)
+0001235c           : LW a7, 392(a5)
+00012360           : ADDI, a2, zero, 1
+00012364           : SLL, a2, a2, a4
+00012368           : OR, a7, a7, a2
+0001236c           : SW, a7, 392(a5)
+00012370           : SW, a3, 264(t1)
+00012374           : ADDI, a3, zero, 2
+00012378           : BEQ, a0, a3, LOC_00106
+0001237c  LOC_00105: ADDI, a4, a4, 1
+00012380           : SW, a4, 4(a5)
+00012384           : ADD, a5, a5, a6
+00012388           : SW, a1, 8(a5)
+0001238c           : ADDI, a0, zero, 0
+00012390           : JALR zero, 0(ra)
+00012394  LOC_00103: ADDI, a5, a4, 332
+00012398           : SW, a5, 328(a4)
+0001239c           : JAL, zero, LOC_00107
+000123a0  LOC_00106: LW a3, 396(a5)
+000123a4           : ADDI, a4, a4, 1
+000123a8           : SW, a4, 4(a5)
+000123ac           : OR, a2, a3, a2
+000123b0           : SW, a2, 396(a5)
+000123b4           : ADD, a5, a5, a6
+000123b8           : SW, a1, 8(a5)
+000123bc           : ADDI, a0, zero, 0
+000123c0           : JALR zero, 0(ra)
+000123c4  LOC_00104: ADDI, a0, zero, -1
+000123c8           : JALR zero, 0(ra)
+000123cc   _close_r: ADDI, sp, sp, -16
+000123d0           : SW, s0, 8(sp)
+000123d4           : SW, s1, 4(sp)
+000123d8           : ADDI, s0, a0, 0
+000123dc           : ADDI, a0, a1, 0
+000123e0           : SW, ra, 12(sp)
+000123e4           : SW, zero, 80(gp)
+000123e8           : JAL, ra, _close
+000123ec           : ADDI, a5, zero, -1
+000123f0           : BEQ, a0, a5, LOC_00108
+000123f4  LOC_00109: LW ra, 12(sp)
+000123f8           : LW s0, 8(sp)
+000123fc           : LW s1, 4(sp)
+00012400           : ADDI, sp, sp, 16
+00012404           : JALR zero, 0(ra)
+00012408  LOC_00108: LW a5, 80(gp)
+0001240c           : BEQ, a5, zero, LOC_00109
+00012410           : LW ra, 12(sp)
+00012414           : SW, a5, 0(s0)
+00012418           : LW s0, 8(sp)
+0001241c           : LW s1, 4(sp)
+00012420           : ADDI, sp, sp, 16
+00012424           : JALR zero, 0(ra)
+00012428 _fclose_r.part.0: ADDI, sp, sp, -16
+0001242c           : SW, s0, 8(sp)
+00012430           : SW, s1, 4(sp)
+00012434           : SW, s2, 0(sp)
+00012438           : ADDI, s0, a1, 0
+0001243c           : SW, ra, 12(sp)
+00012440           : ADDI, s1, a0, 0
+00012444           : JAL, ra, __sflush_r
+00012448           : LW a5, 44(s0)
+0001244c           : ADDI, s2, a0, 0
+00012450           : BEQ, a5, zero, LOC_0010a
+00012454           : LW a1, 28(s0)
+00012458           : ADDI, a0, s1, 0
+0001245c           : JALR ra, 0(a5)
+00012460           : BLT, a0, zero, LOC_0010b
+00012464  LOC_0010a: LHU a5, 12(s0)
+00012468           : ANDI, a5, a5, 128
+0001246c           : BNE, a5, zero, LOC_0010c
+00012470  LOC_00110: LW a1, 48(s0)
+00012474           : BEQ, a1, zero, LOC_0010d
+00012478           : ADDI, a5, s0, 64
+0001247c           : BEQ, a1, a5, LOC_0010e
+00012480           : ADDI, a0, s1, 0
+00012484           : JAL, ra, _free_r
+00012488  LOC_0010e: SW, zero, 48(s0)
+0001248c  LOC_0010d: LW a1, 68(s0)
+00012490           : BEQ, a1, zero, LOC_0010f
+00012494           : ADDI, a0, s1, 0
+00012498           : JAL, ra, _free_r
+0001249c           : SW, zero, 68(s0)
+000124a0  LOC_0010f: JAL, ra, __sfp_lock_acquire
+000124a4           : SH, zero, 12(s0)
+000124a8           : JAL, ra, __sfp_lock_release
+000124ac           : LW ra, 12(sp)
+000124b0           : LW s0, 8(sp)
+000124b4           : LW s1, 4(sp)
+000124b8           : ADDI, a0, s2, 0
+000124bc           : LW s2, 0(sp)
+000124c0           : ADDI, sp, sp, 16
+000124c4           : JALR zero, 0(ra)
+000124c8  LOC_0010b: LHU a5, 12(s0)
+000124cc           : ADDI, s2, zero, -1
+000124d0           : ANDI, a5, a5, 128
+000124d4           : BEQ, a5, zero, LOC_00110
+000124d8  LOC_0010c: LW a1, 16(s0)
+000124dc           : ADDI, a0, s1, 0
+000124e0           : JAL, ra, _free_r
+000124e4           : JAL, zero, LOC_00110
+000124e8  _fclose_r: BEQ, a1, zero, LOC_00111
+000124ec           : ADDI, sp, sp, -32
+000124f0           : SW, s0, 24(sp)
+000124f4           : SW, ra, 28(sp)
+000124f8           : ADDI, s0, a0, 0
+000124fc           : BEQ, a0, zero, LOC_00112
+00012500           : LW a5, 56(a0)
+00012504           : BEQ, a5, zero, LOC_00113
+00012508  LOC_00112: LH a5, 12(a1)
+0001250c           : BNE, a5, zero, LOC_00114
+00012510  LOC_00115: LW ra, 28(sp)
+00012514           : LW s0, 24(sp)
+00012518           : ADDI, a0, zero, 0
+0001251c           : ADDI, sp, sp, 32
+00012520           : JALR zero, 0(ra)
+00012524  LOC_00114: ADDI, a0, s0, 0
+00012528           : LW s0, 24(sp)
+0001252c           : LW ra, 28(sp)
+00012530           : ADDI, sp, sp, 32
+00012534           : JAL, zero, _fclose_r.part.0
+00012538  LOC_00113: SW, a1, 12(sp)
+0001253c           : JAL, ra, __sinit
+00012540           : LW a1, 12(sp)
+00012544           : LH a5, 12(a1)
+00012548           : BEQ, a5, zero, LOC_00115
+0001254c           : JAL, zero, LOC_00114
+00012550  LOC_00111: ADDI, a0, zero, 0
+00012554           : JALR zero, 0(ra)
+00012558     fclose: BEQ, a0, zero, LOC_00116
+0001255c           : ADDI, sp, sp, -32
+00012560           : SW, s0, 24(sp)
+00012564           : ADDI, s0, a0, 0
+00012568           : LW a0, 56(gp)
+0001256c           : SW, ra, 28(sp)
+00012570           : BEQ, a0, zero, LOC_00117
+00012574           : LW a5, 56(a0)
+00012578           : BEQ, a5, zero, LOC_00118
+0001257c  LOC_00117: LH a5, 12(s0)
+00012580           : BNE, a5, zero, LOC_00119
+00012584  LOC_0011a: LW ra, 28(sp)
+00012588           : LW s0, 24(sp)
+0001258c           : ADDI, a0, zero, 0
+00012590           : ADDI, sp, sp, 32
+00012594           : JALR zero, 0(ra)
+00012598  LOC_00119: ADDI, a1, s0, 0
+0001259c           : LW s0, 24(sp)
+000125a0           : LW ra, 28(sp)
+000125a4           : ADDI, sp, sp, 32
+000125a8           : JAL, zero, _fclose_r.part.0
+000125ac  LOC_00118: SW, a0, 12(sp)
+000125b0           : JAL, ra, __sinit
+000125b4           : LH a5, 12(s0)
+000125b8           : LW a0, 12(sp)
+000125bc           : BEQ, a5, zero, LOC_0011a
+000125c0           : JAL, zero, LOC_00119
+000125c4  LOC_00116: ADDI, a0, zero, 0
+000125c8           : JALR zero, 0(ra)
+000125cc __sflush_r: LH a5, 12(a1)
+000125d0           : ADDI, sp, sp, -32
+000125d4           : SW, s0, 24(sp)
+000125d8           : SW, s3, 12(sp)
+000125dc           : SW, ra, 28(sp)
+000125e0           : SW, s1, 20(sp)
+000125e4           : SW, s2, 16(sp)
+000125e8           : ANDI, a3, a5, 8
+000125ec           : ADDI, s0, a1, 0
+000125f0           : ADDI, s3, a0, 0
+000125f4           : BNE, a3, zero, LOC_0011b
+000125f8           : LUI, a4, 4096
+000125fc           : ADDI, a4, a4, -2048
+00012600           : LW a3, 4(a1)
+00012604           : OR, a5, a5, a4
+00012608           : SH, a5, 12(a1)
+0001260c           : BGE, zero, a3, LOC_0011c
+00012610  LOC_00129: LW a4, 40(s0)
+00012614           : BEQ, a4, zero, LOC_0011d
+00012618           : SLLI, a5, a5, 16
+0001261c           : SRLI, a5, a5, 16
+00012620           : LUI, a3, 4096
+00012624           : LW s1, 0(s3)
+00012628           : AND, a3, a5, a3
+0001262c           : SW, zero, 0(s3)
+00012630           : LW a1, 28(s0)
+00012634           : BNE, a3, zero, LOC_0011e
+00012638           : ADDI, a3, zero, 1
+0001263c           : ADDI, a2, zero, 0
+00012640           : ADDI, a0, s3, 0
+00012644           : JALR ra, 0(a4)
+00012648           : ADDI, a5, zero, -1
+0001264c           : BEQ, a0, a5, LOC_0011f
+00012650  LOC_0012c: LHU a5, 12(s0)
+00012654           : LW a4, 40(s0)
+00012658           : LW a1, 28(s0)
+0001265c  LOC_0012a: ANDI, a5, a5, 4
+00012660           : BEQ, a5, zero, LOC_00120
+00012664           : LW a3, 4(s0)
+00012668           : LW a5, 48(s0)
+0001266c           : SUB, a0, a0, a3
+00012670           : BEQ, a5, zero, LOC_00120
+00012674           : LW a5, 60(s0)
+00012678           : SUB, a0, a0, a5
+0001267c  LOC_00120: ADDI, a2, a0, 0
+00012680           : ADDI, a3, zero, 0
+00012684           : ADDI, a0, s3, 0
+00012688           : JALR ra, 0(a4)
+0001268c           : ADDI, a5, zero, -1
+00012690           : BNE, a0, a5, LOC_00121
+00012694           : LW a4, 0(s3)
+00012698           : LH a5, 12(s0)
+0001269c           : BEQ, a4, zero, LOC_00122
+000126a0           : ADDI, a3, zero, 29
+000126a4           : BEQ, a4, a3, LOC_00123
+000126a8           : ADDI, a3, zero, 22
+000126ac           : BNE, a4, a3, LOC_00124
+000126b0  LOC_00123: LW a3, 16(s0)
+000126b4           : LUI, a4, -4096
+000126b8           : ADDI, a4, a4, 2047
+000126bc           : AND, a5, a5, a4
+000126c0           : SH, a5, 12(s0)
+000126c4           : SW, zero, 4(s0)
+000126c8           : SW, a3, 0(s0)
+000126cc  LOC_0012b: LW a1, 48(s0)
+000126d0           : SW, s1, 0(s3)
+000126d4           : BEQ, a1, zero, LOC_0011d
+000126d8           : ADDI, a5, s0, 64
+000126dc           : BEQ, a1, a5, LOC_00125
+000126e0           : ADDI, a0, s3, 0
+000126e4           : JAL, ra, _free_r
+000126e8  LOC_00125: SW, zero, 48(s0)
+000126ec  LOC_0011d: ADDI, a0, zero, 0
+000126f0  LOC_0012e: LW ra, 28(sp)
+000126f4           : LW s0, 24(sp)
+000126f8           : LW s1, 20(sp)
+000126fc           : LW s2, 16(sp)
+00012700           : LW s3, 12(sp)
+00012704           : ADDI, sp, sp, 32
+00012708           : JALR zero, 0(ra)
+0001270c  LOC_0011b: LW s2, 16(a1)
+00012710           : BEQ, s2, zero, LOC_0011d
+00012714           : LW s1, 0(a1)
+00012718           : SLLI, a4, a5, 16
+0001271c           : SRLI, a4, a4, 16
+00012720           : ANDI, a4, a4, 3
+00012724           : SW, s2, 0(a1)
+00012728           : SUB, s1, s1, s2
+0001272c           : ADDI, a5, zero, 0
+00012730           : BNE, a4, zero, LOC_00126
+00012734           : LW a5, 20(a1)
+00012738  LOC_00126: SW, a5, 8(s0)
+0001273c           : BLT, zero, s1, LOC_00127
+00012740           : JAL, zero, LOC_0011d
+00012744  LOC_00128: ADD, s2, s2, a0
+00012748           : BGE, zero, s1, LOC_0011d
+0001274c  LOC_00127: LW a5, 36(s0)
+00012750           : LW a1, 28(s0)
+00012754           : ADDI, a3, s1, 0
+00012758           : ADDI, a2, s2, 0
+0001275c           : ADDI, a0, s3, 0
+00012760           : JALR ra, 0(a5)
+00012764           : SUB, s1, s1, a0
+00012768           : BLT, zero, a0, LOC_00128
+0001276c           : LHU a5, 12(s0)
+00012770           : ADDI, a0, zero, -1
+00012774  LOC_00124: ORI, a5, a5, 64
+00012778           : LW ra, 28(sp)
+0001277c           : SH, a5, 12(s0)
+00012780           : LW s0, 24(sp)
+00012784           : LW s1, 20(sp)
+00012788           : LW s2, 16(sp)
+0001278c           : LW s3, 12(sp)
+00012790           : ADDI, sp, sp, 32
+00012794           : JALR zero, 0(ra)
+00012798  LOC_0011c: LW a4, 60(a1)
+0001279c           : BLT, zero, a4, LOC_00129
+000127a0           : JAL, zero, LOC_0011d
+000127a4  LOC_0011e: LW a0, 80(s0)
+000127a8           : JAL, zero, LOC_0012a
+000127ac  LOC_00121: LHU a5, 12(s0)
+000127b0           : LUI, a4, -4096
+000127b4           : ADDI, a4, a4, 2047
+000127b8           : AND, a5, a5, a4
+000127bc           : LW a3, 16(s0)
+000127c0           : SLLI, a5, a5, 16
+000127c4           : SRAI, a5, a5, 16
+000127c8  LOC_0012f: SRLI, a4, a5, 12
+000127cc           : SH, a5, 12(s0)
+000127d0           : SW, zero, 4(s0)
+000127d4           : SW, a3, 0(s0)
+000127d8           : ANDI, a5, a4, 1
+000127dc           : BEQ, a5, zero, LOC_0012b
+000127e0           : SW, a0, 80(s0)
+000127e4           : JAL, zero, LOC_0012b
+000127e8  LOC_0011f: LW a5, 0(s3)
+000127ec           : BEQ, a5, zero, LOC_0012c
+000127f0           : ADDI, a4, zero, 29
+000127f4           : BEQ, a5, a4, LOC_0012d
+000127f8           : ADDI, a4, zero, 22
+000127fc           : BEQ, a5, a4, LOC_0012d
+00012800           : LHU a5, 12(s0)
+00012804           : ORI, a5, a5, 64
+00012808           : SH, a5, 12(s0)
+0001280c           : JAL, zero, LOC_0012e
+00012810  LOC_00122: LUI, a4, -4096
+00012814           : ADDI, a4, a4, 2047
+00012818           : LW a3, 16(s0)
+0001281c           : AND, a5, a5, a4
+00012820           : JAL, zero, LOC_0012f
+00012824  LOC_0012d: SW, s1, 0(s3)
+00012828           : ADDI, a0, zero, 0
+0001282c           : JAL, zero, LOC_0012e
+00012830  _fflush_r: ADDI, sp, sp, -32
+00012834           : SW, s0, 24(sp)
+00012838           : SW, ra, 28(sp)
+0001283c           : ADDI, s0, a0, 0
+00012840           : BEQ, a0, zero, LOC_00130
+00012844           : LW a5, 56(a0)
+00012848           : BEQ, a5, zero, LOC_00131
+0001284c  LOC_00130: LH a5, 12(a1)
+00012850           : BNE, a5, zero, LOC_00132
+00012854  LOC_00133: LW ra, 28(sp)
+00012858           : LW s0, 24(sp)
+0001285c           : ADDI, a0, zero, 0
+00012860           : ADDI, sp, sp, 32
+00012864           : JALR zero, 0(ra)
+00012868  LOC_00131: SW, a1, 12(sp)
+0001286c           : JAL, ra, __sinit
+00012870           : LW a1, 12(sp)
+00012874           : LH a5, 12(a1)
+00012878           : BEQ, a5, zero, LOC_00133
+0001287c  LOC_00132: ADDI, a0, s0, 0
+00012880           : LW s0, 24(sp)
+00012884           : LW ra, 28(sp)
+00012888           : ADDI, sp, sp, 32
+0001288c           : JAL, zero, __sflush_r
+00012890     fflush: BEQ, a0, zero, LOC_00134
+00012894           : ADDI, sp, sp, -32
+00012898           : SW, s0, 24(sp)
+0001289c           : ADDI, s0, a0, 0
+000128a0           : LW a0, 56(gp)
+000128a4           : SW, ra, 28(sp)
+000128a8           : BEQ, a0, zero, LOC_00135
+000128ac           : LW a5, 56(a0)
+000128b0           : BEQ, a5, zero, LOC_00136
+000128b4  LOC_00135: LH a5, 12(s0)
+000128b8           : BNE, a5, zero, LOC_00137
+000128bc  LOC_00138: LW ra, 28(sp)
+000128c0           : LW s0, 24(sp)
+000128c4           : ADDI, a0, zero, 0
+000128c8           : ADDI, sp, sp, 32
+000128cc           : JALR zero, 0(ra)
+000128d0  LOC_00137: ADDI, a1, s0, 0
+000128d4           : LW s0, 24(sp)
+000128d8           : LW ra, 28(sp)
+000128dc           : ADDI, sp, sp, 32
+000128e0           : JAL, zero, __sflush_r
+000128e4  LOC_00136: SW, a0, 12(sp)
+000128e8           : JAL, ra, __sinit
+000128ec           : LH a5, 12(s0)
+000128f0           : LW a0, 12(sp)
+000128f4           : BEQ, a5, zero, LOC_00138
+000128f8           : JAL, zero, LOC_00137
+000128fc  LOC_00134: LW a0, 48(gp)
+00012900           : LUI, a1, 77824
+00012904           : ADDI, a1, a1, -2000
+00012908           : JAL, zero, _fwalk_reent
+0001290c _malloc_trim_r: ADDI, sp, sp, -32
+00012910           : SW, s3, 12(sp)
+00012914           : SW, s0, 24(sp)
+00012918           : SW, s1, 20(sp)
+0001291c           : SW, s2, 16(sp)
+00012920           : SW, s4, 8(sp)
+00012924           : SW, ra, 28(sp)
+00012928           : ADDI, s4, a1, 0
+0001292c           : ADDI, s2, a0, 0
+00012930           : ADDI, s3, gp, -984
+00012934           : JAL, ra, __malloc_lock
+00012938           : LW a4, 8(s3)
+0001293c           : LUI, a5, 4096
+00012940           : ADDI, s0, a5, -17
+00012944           : LW s1, 4(a4)
+00012948           : SUB, s0, s0, s4
+0001294c           : ANDI, s1, s1, -4
+00012950           : ADD, s0, s0, s1
+00012954           : SRLI, s0, s0, 12
+00012958           : ADDI, s0, s0, -1
+0001295c           : SLLI, s0, s0, 12
+00012960           : BLT, s0, a5, LOC_00139
+00012964           : ADDI, a1, zero, 0
+00012968           : ADDI, a0, s2, 0
+0001296c           : JAL, ra, _sbrk_r
+00012970           : LW a5, 8(s3)
+00012974           : ADD, a5, a5, s1
+00012978           : BEQ, a0, a5, LOC_0013a
+0001297c  LOC_00139: ADDI, a0, s2, 0
+00012980           : JAL, ra, __malloc_unlock
+00012984           : LW ra, 28(sp)
+00012988           : LW s0, 24(sp)
+0001298c           : LW s1, 20(sp)
+00012990           : LW s2, 16(sp)
+00012994           : LW s3, 12(sp)
+00012998           : LW s4, 8(sp)
+0001299c           : ADDI, a0, zero, 0
+000129a0           : ADDI, sp, sp, 32
+000129a4           : JALR zero, 0(ra)
+000129a8  LOC_0013a: SUB, a1, zero, s0
+000129ac           : ADDI, a0, s2, 0
+000129b0           : JAL, ra, _sbrk_r
+000129b4           : ADDI, a5, zero, -1
+000129b8           : BEQ, a0, a5, LOC_0013b
+000129bc           : ADDI, a5, gp, 116
+000129c0           : LW a4, 0(a5)
+000129c4           : LW a3, 8(s3)
+000129c8           : SUB, s1, s1, s0
+000129cc           : ORI, s1, s1, 1
+000129d0           : SUB, s0, a4, s0
+000129d4           : ADDI, a0, s2, 0
+000129d8           : SW, s1, 4(a3)
+000129dc           : SW, s0, 0(a5)
+000129e0           : JAL, ra, __malloc_unlock
+000129e4           : LW ra, 28(sp)
+000129e8           : LW s0, 24(sp)
+000129ec           : LW s1, 20(sp)
+000129f0           : LW s2, 16(sp)
+000129f4           : LW s3, 12(sp)
+000129f8           : LW s4, 8(sp)
+000129fc           : ADDI, a0, zero, 1
+00012a00           : ADDI, sp, sp, 32
+00012a04           : JALR zero, 0(ra)
+00012a08  LOC_0013b: ADDI, a1, zero, 0
+00012a0c           : ADDI, a0, s2, 0
+00012a10           : JAL, ra, _sbrk_r
+00012a14           : LW a4, 8(s3)
+00012a18           : ADDI, a3, zero, 15
+00012a1c           : SUB, a5, a0, a4
+00012a20           : BGE, a3, a5, LOC_00139
+00012a24           : LW a3, 60(gp)
+00012a28           : ORI, a5, a5, 1
+00012a2c           : SW, a5, 4(a4)
+00012a30           : SUB, a0, a0, a3
+00012a34           : SW, a0, 116(gp)
+00012a38           : JAL, zero, LOC_00139
+00012a3c    _free_r: BEQ, a1, zero, LOC_0013c
+00012a40           : ADDI, sp, sp, -16
+00012a44           : SW, s0, 8(sp)
+00012a48           : SW, s1, 4(sp)
+00012a4c           : ADDI, s0, a1, 0
+00012a50           : ADDI, s1, a0, 0
+00012a54           : SW, ra, 12(sp)
+00012a58           : JAL, ra, __malloc_lock
+00012a5c           : LW a6, -4(s0)
+00012a60           : ADDI, a4, s0, -8
+00012a64           : ANDI, a5, a6, -2
+00012a68           : ADD, a2, a4, a5
+00012a6c           : ADDI, a1, gp, -984
+00012a70           : LW a3, 4(a2)
+00012a74           : LW a0, 8(a1)
+00012a78           : ANDI, a3, a3, -4
+00012a7c           : BEQ, a0, a2, LOC_0013d
+00012a80           : SW, a3, 4(a2)
+00012a84           : ANDI, a6, a6, 1
+00012a88           : ADD, a0, a2, a3
+00012a8c           : BNE, a6, zero, LOC_0013e
+00012a90           : LW t1, -8(s0)
+00012a94           : LW a6, 4(a0)
+00012a98           : SUB, a4, a4, t1
+00012a9c           : LW a7, 8(a4)
+00012aa0           : ADDI, a0, gp, -976
+00012aa4           : ADD, a5, a5, t1
+00012aa8           : ANDI, a6, a6, 1
+00012aac           : BEQ, a7, a0, LOC_0013f
+00012ab0           : LW t1, 12(a4)
+00012ab4           : SW, t1, 12(a7)
+00012ab8           : SW, a7, 8(t1)
+00012abc           : BEQ, a6, zero, LOC_00140
+00012ac0           : ORI, a3, a5, 1
+00012ac4           : SW, a3, 4(a4)
+00012ac8           : SW, a5, 0(a2)
+00012acc  LOC_00144: ADDI, a3, zero, 511
+00012ad0           : BLTU, a3, a5, LOC_00141
+00012ad4  LOC_00145: ANDI, a3, a5, -8
+00012ad8           : ADDI, a3, a3, 8
+00012adc           : LW a0, 4(a1)
+00012ae0           : ADD, a3, a1, a3
+00012ae4           : LW a2, 0(a3)
+00012ae8           : SRLI, a6, a5, 5
+00012aec           : ADDI, a5, zero, 1
+00012af0           : SLL, a5, a5, a6
+00012af4           : OR, a5, a5, a0
+00012af8           : ADDI, a0, a3, -8
+00012afc           : SW, a0, 12(a4)
+00012b00           : SW, a2, 8(a4)
+00012b04           : SW, a5, 4(a1)
+00012b08           : SW, a4, 0(a3)
+00012b0c           : SW, a4, 12(a2)
+00012b10  LOC_0014c: LW s0, 8(sp)
+00012b14           : LW ra, 12(sp)
+00012b18           : ADDI, a0, s1, 0
+00012b1c           : LW s1, 4(sp)
+00012b20           : ADDI, sp, sp, 16
+00012b24           : JAL, zero, __malloc_unlock
+00012b28  LOC_0013e: LW a0, 4(a0)
+00012b2c           : ANDI, a0, a0, 1
+00012b30           : BNE, a0, zero, LOC_00142
+00012b34           : ADD, a5, a5, a3
+00012b38           : ADDI, a0, gp, -976
+00012b3c  LOC_00150: LW a3, 8(a2)
+00012b40           : ORI, a7, a5, 1
+00012b44           : ADD, a6, a4, a5
+00012b48           : BEQ, a3, a0, LOC_00143
+00012b4c           : LW a2, 12(a2)
+00012b50           : SW, a2, 12(a3)
+00012b54           : SW, a3, 8(a2)
+00012b58           : SW, a7, 4(a4)
+00012b5c           : SW, a5, 0(a6)
+00012b60           : JAL, zero, LOC_00144
+00012b64  LOC_0013c: JALR zero, 0(ra)
+00012b68  LOC_00142: ORI, a3, a5, 1
+00012b6c           : SW, a3, -4(s0)
+00012b70           : SW, a5, 0(a2)
+00012b74           : ADDI, a3, zero, 511
+00012b78           : BGEU, a3, a5, LOC_00145
+00012b7c  LOC_00141: SRLI, a3, a5, 9
+00012b80           : ADDI, a2, zero, 4
+00012b84           : BLTU, a2, a3, LOC_00146
+00012b88           : SRLI, a3, a5, 6
+00012b8c           : ADDI, a6, a3, 57
+00012b90           : ADDI, a2, a3, 56
+00012b94           : SLLI, a6, a6, 3
+00012b98  LOC_0014f: ADD, a6, a1, a6
+00012b9c           : LW a3, 0(a6)
+00012ba0           : ADDI, a6, a6, -8
+00012ba4           : BEQ, a6, a3, LOC_00147
+00012ba8  LOC_00149: LW a2, 4(a3)
+00012bac           : ANDI, a2, a2, -4
+00012bb0           : BGEU, a5, a2, LOC_00148
+00012bb4           : LW a3, 8(a3)
+00012bb8           : BNE, a6, a3, LOC_00149
+00012bbc  LOC_00148: LW a6, 12(a3)
+00012bc0  LOC_00151: SW, a6, 12(a4)
+00012bc4           : SW, a3, 8(a4)
+00012bc8           : LW s0, 8(sp)
+00012bcc           : LW ra, 12(sp)
+00012bd0           : SW, a4, 8(a6)
+00012bd4           : ADDI, a0, s1, 0
+00012bd8           : LW s1, 4(sp)
+00012bdc           : SW, a4, 12(a3)
+00012be0           : ADDI, sp, sp, 16
+00012be4           : JAL, zero, __malloc_unlock
+00012be8  LOC_0013f: BNE, a6, zero, LOC_0014a
+00012bec           : LW a1, 12(a2)
+00012bf0           : LW a2, 8(a2)
+00012bf4           : ADD, a5, a3, a5
+00012bf8           : LW s0, 8(sp)
+00012bfc           : SW, a1, 12(a2)
+00012c00           : SW, a2, 8(a1)
+00012c04           : ORI, a3, a5, 1
+00012c08           : LW ra, 12(sp)
+00012c0c           : SW, a3, 4(a4)
+00012c10           : ADDI, a0, s1, 0
+00012c14           : ADD, a4, a4, a5
+00012c18           : LW s1, 4(sp)
+00012c1c           : SW, a5, 0(a4)
+00012c20           : ADDI, sp, sp, 16
+00012c24           : JAL, zero, __malloc_unlock
+00012c28  LOC_0013d: ANDI, a6, a6, 1
+00012c2c           : ADD, a5, a5, a3
+00012c30           : BNE, a6, zero, LOC_0014b
+00012c34           : LW a0, -8(s0)
+00012c38           : SUB, a4, a4, a0
+00012c3c           : LW a3, 12(a4)
+00012c40           : LW a2, 8(a4)
+00012c44           : ADD, a5, a5, a0
+00012c48           : SW, a3, 12(a2)
+00012c4c           : SW, a2, 8(a3)
+00012c50  LOC_0014b: ORI, a2, a5, 1
+00012c54           : LW a3, 64(gp)
+00012c58           : SW, a2, 4(a4)
+00012c5c           : SW, a4, 8(a1)
+00012c60           : BLTU, a5, a3, LOC_0014c
+00012c64           : LW a1, 76(gp)
+00012c68           : ADDI, a0, s1, 0
+00012c6c           : JAL, ra, _malloc_trim_r
+00012c70           : JAL, zero, LOC_0014c
+00012c74  LOC_00146: ADDI, a2, zero, 20
+00012c78           : BGEU, a2, a3, LOC_0014d
+00012c7c           : ADDI, a2, zero, 84
+00012c80           : BLTU, a2, a3, LOC_0014e
+00012c84           : SRLI, a3, a5, 12
+00012c88           : ADDI, a6, a3, 111
+00012c8c           : ADDI, a2, a3, 110
+00012c90           : SLLI, a6, a6, 3
+00012c94           : JAL, zero, LOC_0014f
+00012c98  LOC_00140: ADD, a5, a5, a3
+00012c9c           : JAL, zero, LOC_00150
+00012ca0  LOC_0014d: ADDI, a6, a3, 92
+00012ca4           : ADDI, a2, a3, 91
+00012ca8           : SLLI, a6, a6, 3
+00012cac           : JAL, zero, LOC_0014f
+00012cb0  LOC_00143: SW, a4, 20(a1)
+00012cb4           : SW, a4, 16(a1)
+00012cb8           : SW, a0, 12(a4)
+00012cbc           : SW, a0, 8(a4)
+00012cc0           : SW, a7, 4(a4)
+00012cc4           : SW, a5, 0(a6)
+00012cc8           : JAL, zero, LOC_0014c
+00012ccc  LOC_00147: LW a0, 4(a1)
+00012cd0           : SRAI, a2, a2, 2
+00012cd4           : ADDI, a5, zero, 1
+00012cd8           : SLL, a2, a5, a2
+00012cdc           : OR, a2, a2, a0
+00012ce0           : SW, a2, 4(a1)
+00012ce4           : JAL, zero, LOC_00151
+00012ce8  LOC_0014e: ADDI, a2, zero, 340
+00012cec           : BLTU, a2, a3, LOC_00152
+00012cf0           : SRLI, a3, a5, 15
+00012cf4           : ADDI, a6, a3, 120
+00012cf8           : ADDI, a2, a3, 119
+00012cfc           : SLLI, a6, a6, 3
+00012d00           : JAL, zero, LOC_0014f
+00012d04  LOC_00152: ADDI, a2, zero, 1364
+00012d08           : BLTU, a2, a3, LOC_00153
+00012d0c           : SRLI, a3, a5, 18
+00012d10           : ADDI, a6, a3, 125
+00012d14           : ADDI, a2, a3, 124
+00012d18           : SLLI, a6, a6, 3
+00012d1c           : JAL, zero, LOC_0014f
+00012d20  LOC_00153: ADDI, a6, zero, 1016
+00012d24           : ADDI, a2, zero, 126
+00012d28           : JAL, zero, LOC_0014f
+00012d2c  LOC_0014a: ORI, a3, a5, 1
+00012d30           : SW, a3, 4(a4)
+00012d34           : SW, a5, 0(a2)
+00012d38           : JAL, zero, LOC_0014c
+00012d3c   _lseek_r: ADDI, sp, sp, -16
+00012d40           : ADDI, a4, a1, 0
+00012d44           : SW, s0, 8(sp)
+00012d48           : SW, s1, 4(sp)
+00012d4c           : ADDI, a1, a2, 0
+00012d50           : ADDI, s0, a0, 0
+00012d54           : ADDI, a2, a3, 0
+00012d58           : ADDI, a0, a4, 0
+00012d5c           : SW, ra, 12(sp)
+00012d60           : SW, zero, 80(gp)
+00012d64           : JAL, ra, _lseek
+00012d68           : ADDI, a5, zero, -1
+00012d6c           : BEQ, a0, a5, LOC_00154
+00012d70  LOC_00155: LW ra, 12(sp)
+00012d74           : LW s0, 8(sp)
+00012d78           : LW s1, 4(sp)
+00012d7c           : ADDI, sp, sp, 16
+00012d80           : JALR zero, 0(ra)
+00012d84  LOC_00154: LW a5, 80(gp)
+00012d88           : BEQ, a5, zero, LOC_00155
+00012d8c           : LW ra, 12(sp)
+00012d90           : SW, a5, 0(s0)
+00012d94           : LW s0, 8(sp)
+00012d98           : LW s1, 4(sp)
+00012d9c           : ADDI, sp, sp, 16
+00012da0           : JALR zero, 0(ra)
+00012da4 __smakebuf_r: LHU a5, 12(a1)
+00012da8           : ADDI, sp, sp, -128
+00012dac           : SW, s0, 120(sp)
+00012db0           : SW, ra, 124(sp)
+00012db4           : SW, s1, 116(sp)
+00012db8           : SW, s2, 112(sp)
+00012dbc           : SW, s3, 108(sp)
+00012dc0           : SW, s4, 104(sp)
+00012dc4           : ANDI, a4, a5, 2
+00012dc8           : ADDI, s0, a1, 0
+00012dcc           : BEQ, a4, zero, LOC_00156
+00012dd0           : ADDI, a5, a1, 67
+00012dd4           : SW, a5, 0(a1)
+00012dd8           : SW, a5, 16(a1)
+00012ddc           : ADDI, a5, zero, 1
+00012de0           : SW, a5, 20(a1)
+00012de4  LOC_0015d: LW ra, 124(sp)
+00012de8           : LW s0, 120(sp)
+00012dec           : LW s1, 116(sp)
+00012df0           : LW s2, 112(sp)
+00012df4           : LW s3, 108(sp)
+00012df8           : LW s4, 104(sp)
+00012dfc           : ADDI, sp, sp, 128
+00012e00           : JALR zero, 0(ra)
+00012e04  LOC_00156: LH a1, 14(a1)
+00012e08           : ADDI, s1, a0, 0
+00012e0c           : BLT, a1, zero, LOC_00157
+00012e10           : ADDI, a2, sp, 8
+00012e14           : JAL, ra, _fstat_r
+00012e18           : BLT, a0, zero, LOC_00158
+00012e1c           : LW a5, 12(sp)
+00012e20           : LUI, s2, 61440
+00012e24           : ADDI, s4, zero, 1024
+00012e28           : AND, s2, s2, a5
+00012e2c           : LUI, a5, -8192
+00012e30           : ADD, s2, s2, a5
+00012e34           : LUI, a5, 4096
+00012e38           : SLTIU, s2, s2, 1
+00012e3c           : ADDI, s3, a5, -2048
+00012e40  LOC_0015e: ADDI, a1, s4, 0
+00012e44           : ADDI, a0, s1, 0
+00012e48           : JAL, ra, _malloc_r
+00012e4c           : LH a5, 12(s0)
+00012e50           : BEQ, a0, zero, LOC_00159
+00012e54  LOC_0015c: LUI, a4, 65536
+00012e58           : ADDI, a4, a4, 1472
+00012e5c           : SW, a4, 60(s1)
+00012e60           : ORI, a5, a5, 128
+00012e64           : SH, a5, 12(s0)
+00012e68           : SW, a0, 0(s0)
+00012e6c           : SW, a0, 16(s0)
+00012e70           : SW, s4, 20(s0)
+00012e74           : BNE, s2, zero, LOC_0015a
+00012e78  LOC_00160: OR, a5, a5, s3
+00012e7c           : LW ra, 124(sp)
+00012e80           : SH, a5, 12(s0)
+00012e84           : LW s0, 120(sp)
+00012e88           : LW s1, 116(sp)
+00012e8c           : LW s2, 112(sp)
+00012e90           : LW s3, 108(sp)
+00012e94           : LW s4, 104(sp)
+00012e98           : ADDI, sp, sp, 128
+00012e9c           : JALR zero, 0(ra)
+00012ea0  LOC_00158: LHU a5, 12(s0)
+00012ea4  LOC_00157: ANDI, a5, a5, 128
+00012ea8           : ADDI, s2, zero, 0
+00012eac           : BEQ, a5, zero, LOC_0015b
+00012eb0           : ADDI, s4, zero, 64
+00012eb4           : ADDI, a1, s4, 0
+00012eb8           : ADDI, a0, s1, 0
+00012ebc           : JAL, ra, _malloc_r
+00012ec0           : LH a5, 12(s0)
+00012ec4           : ADDI, s3, zero, 0
+00012ec8           : BNE, a0, zero, LOC_0015c
+00012ecc  LOC_00159: ANDI, a4, a5, 512
+00012ed0           : BNE, a4, zero, LOC_0015d
+00012ed4           : ANDI, a5, a5, -4
+00012ed8           : ORI, a5, a5, 2
+00012edc           : ADDI, a4, s0, 67
+00012ee0           : SH, a5, 12(s0)
+00012ee4           : ADDI, a5, zero, 1
+00012ee8           : SW, a4, 0(s0)
+00012eec           : SW, a4, 16(s0)
+00012ef0           : SW, a5, 20(s0)
+00012ef4           : JAL, zero, LOC_0015d
+00012ef8  LOC_0015b: ADDI, s4, zero, 1024
+00012efc           : ADDI, s3, zero, 0
+00012f00           : JAL, zero, LOC_0015e
+00012f04  LOC_0015a: LH a1, 14(s0)
+00012f08           : ADDI, a0, s1, 0
+00012f0c           : JAL, ra, _isatty_r
+00012f10           : BNE, a0, zero, LOC_0015f
+00012f14           : LH a5, 12(s0)
+00012f18           : JAL, zero, LOC_00160
+00012f1c  LOC_0015f: LHU a5, 12(s0)
+00012f20           : ANDI, a5, a5, -4
+00012f24           : ORI, a5, a5, 1
+00012f28           : SLLI, a5, a5, 16
+00012f2c           : SRAI, a5, a5, 16
+00012f30           : JAL, zero, LOC_00160
+00012f34 __swhatbuf_r: ADDI, sp, sp, -112
+00012f38           : SW, s0, 104(sp)
+00012f3c           : ADDI, s0, a1, 0
+00012f40           : LH a1, 14(a1)
+00012f44           : SW, s1, 100(sp)
+00012f48           : SW, s2, 96(sp)
+00012f4c           : SW, ra, 108(sp)
+00012f50           : ADDI, s1, a2, 0
+00012f54           : ADDI, s2, a3, 0
+00012f58           : BLT, a1, zero, LOC_00161
+00012f5c           : ADDI, a2, sp, 8
+00012f60           : JAL, ra, _fstat_r
+00012f64           : BLT, a0, zero, LOC_00161
+00012f68           : LW a4, 12(sp)
+00012f6c           : LUI, a5, 61440
+00012f70           : LW ra, 108(sp)
+00012f74           : AND, a5, a5, a4
+00012f78           : LUI, a4, -8192
+00012f7c           : ADD, a5, a5, a4
+00012f80           : LW s0, 104(sp)
+00012f84           : SLTIU, a5, a5, 1
+00012f88           : SW, a5, 0(s2)
+00012f8c           : ADDI, a5, zero, 1024
+00012f90           : SW, a5, 0(s1)
+00012f94           : LUI, a0, 4096
+00012f98           : LW s1, 100(sp)
+00012f9c           : LW s2, 96(sp)
+00012fa0           : ADDI, a0, a0, -2048
+00012fa4           : ADDI, sp, sp, 112
+00012fa8           : JALR zero, 0(ra)
+00012fac  LOC_00161: LH a5, 12(s0)
+00012fb0           : SW, zero, 0(s2)
+00012fb4           : ANDI, a5, a5, 128
+00012fb8           : BEQ, a5, zero, LOC_00162
+00012fbc           : LW ra, 108(sp)
+00012fc0           : LW s0, 104(sp)
+00012fc4           : ADDI, a5, zero, 64
+00012fc8           : SW, a5, 0(s1)
+00012fcc           : LW s2, 96(sp)
+00012fd0           : LW s1, 100(sp)
+00012fd4           : ADDI, a0, zero, 0
+00012fd8           : ADDI, sp, sp, 112
+00012fdc           : JALR zero, 0(ra)
+00012fe0  LOC_00162: LW ra, 108(sp)
+00012fe4           : LW s0, 104(sp)
+00012fe8           : ADDI, a5, zero, 1024
+00012fec           : SW, a5, 0(s1)
+00012ff0           : LW s2, 96(sp)
+00012ff4           : LW s1, 100(sp)
+00012ff8           : ADDI, a0, zero, 0
+00012ffc           : ADDI, sp, sp, 112
+00013000           : JALR zero, 0(ra)
+00013004    _read_r: ADDI, sp, sp, -16
+00013008           : ADDI, a4, a1, 0
+0001300c           : SW, s0, 8(sp)
+00013010           : SW, s1, 4(sp)
+00013014           : ADDI, a1, a2, 0
+00013018           : ADDI, s0, a0, 0
+0001301c           : ADDI, a2, a3, 0
+00013020           : ADDI, a0, a4, 0
+00013024           : SW, ra, 12(sp)
+00013028           : SW, zero, 80(gp)
+0001302c           : JAL, ra, _read
+00013030           : ADDI, a5, zero, -1
+00013034           : BEQ, a0, a5, LOC_00163
+00013038  LOC_00164: LW ra, 12(sp)
+0001303c           : LW s0, 8(sp)
+00013040           : LW s1, 4(sp)
+00013044           : ADDI, sp, sp, 16
+00013048           : JALR zero, 0(ra)
+0001304c  LOC_00163: LW a5, 80(gp)
+00013050           : BEQ, a5, zero, LOC_00164
+00013054           : LW ra, 12(sp)
+00013058           : SW, a5, 0(s0)
+0001305c           : LW s0, 8(sp)
+00013060           : LW s1, 4(sp)
+00013064           : ADDI, sp, sp, 16
+00013068           : JALR zero, 0(ra)
+0001306c cleanup_glue: ADDI, sp, sp, -32
+00013070           : SW, s2, 16(sp)
+00013074           : LW s2, 0(a1)
+00013078           : SW, s0, 24(sp)
+0001307c           : SW, s1, 20(sp)
+00013080           : SW, ra, 28(sp)
+00013084           : SW, s3, 12(sp)
+00013088           : SW, s4, 8(sp)
+0001308c           : ADDI, s0, a1, 0
+00013090           : ADDI, s1, a0, 0
+00013094           : BEQ, s2, zero, LOC_00165
+00013098           : LW s3, 0(s2)
+0001309c           : BEQ, s3, zero, LOC_00166
+000130a0           : LW s4, 0(s3)
+000130a4           : BEQ, s4, zero, LOC_00167
+000130a8           : LW a1, 0(s4)
+000130ac           : BEQ, a1, zero, LOC_00168
+000130b0           : JAL, ra, cleanup_glue
+000130b4  LOC_00168: ADDI, a1, s4, 0
+000130b8           : ADDI, a0, s1, 0
+000130bc           : JAL, ra, _free_r
+000130c0  LOC_00167: ADDI, a1, s3, 0
+000130c4           : ADDI, a0, s1, 0
+000130c8           : JAL, ra, _free_r
+000130cc  LOC_00166: ADDI, a1, s2, 0
+000130d0           : ADDI, a0, s1, 0
+000130d4           : JAL, ra, _free_r
+000130d8  LOC_00165: ADDI, a1, s0, 0
+000130dc           : LW s0, 24(sp)
+000130e0           : LW ra, 28(sp)
+000130e4           : LW s2, 16(sp)
+000130e8           : LW s3, 12(sp)
+000130ec           : LW s4, 8(sp)
+000130f0           : ADDI, a0, s1, 0
+000130f4           : LW s1, 20(sp)
+000130f8           : ADDI, sp, sp, 32
+000130fc           : JAL, zero, _free_r
+00013100 _reclaim_reent: LW a5, 56(gp)
+00013104           : BEQ, a5, a0, LOC_00169
+00013108           : LW a1, 76(a0)
+0001310c           : ADDI, sp, sp, -32
+00013110           : SW, s1, 20(sp)
+00013114           : SW, ra, 28(sp)
+00013118           : SW, s0, 24(sp)
+0001311c           : SW, s2, 16(sp)
+00013120           : SW, s3, 12(sp)
+00013124           : ADDI, s1, a0, 0
+00013128           : BEQ, a1, zero, LOC_0016a
+0001312c           : ADDI, s2, zero, 0
+00013130           : ADDI, s3, zero, 128
+00013134  LOC_0016d: ADD, a5, a1, s2
+00013138           : LW s0, 0(a5)
+0001313c           : BEQ, s0, zero, LOC_0016b
+00013140  LOC_0016c: ADDI, a1, s0, 0
+00013144           : LW s0, 0(s0)
+00013148           : ADDI, a0, s1, 0
+0001314c           : JAL, ra, _free_r
+00013150           : BNE, s0, zero, LOC_0016c
+00013154           : LW a1, 76(s1)
+00013158  LOC_0016b: ADDI, s2, s2, 4
+0001315c           : BNE, s2, s3, LOC_0016d
+00013160           : ADDI, a0, s1, 0
+00013164           : JAL, ra, _free_r
+00013168  LOC_0016a: LW a1, 64(s1)
+0001316c           : BEQ, a1, zero, LOC_0016e
+00013170           : ADDI, a0, s1, 0
+00013174           : JAL, ra, _free_r
+00013178  LOC_0016e: LW s0, 328(s1)
+0001317c           : BEQ, s0, zero, LOC_0016f
+00013180           : ADDI, s2, s1, 332
+00013184           : BEQ, s0, s2, LOC_0016f
+00013188  LOC_00170: ADDI, a1, s0, 0
+0001318c           : LW s0, 0(s0)
+00013190           : ADDI, a0, s1, 0
+00013194           : JAL, ra, _free_r
+00013198           : BNE, s2, s0, LOC_00170
+0001319c  LOC_0016f: LW a1, 84(s1)
+000131a0           : BEQ, a1, zero, LOC_00171
+000131a4           : ADDI, a0, s1, 0
+000131a8           : JAL, ra, _free_r
+000131ac  LOC_00171: LW a5, 56(s1)
+000131b0           : BEQ, a5, zero, LOC_00172
+000131b4           : LW a5, 60(s1)
+000131b8           : ADDI, a0, s1, 0
+000131bc           : JALR ra, 0(a5)
+000131c0           : LW s0, 736(s1)
+000131c4           : BEQ, s0, zero, LOC_00172
+000131c8           : LW a1, 0(s0)
+000131cc           : BEQ, a1, zero, LOC_00173
+000131d0           : ADDI, a0, s1, 0
+000131d4           : JAL, ra, cleanup_glue
+000131d8  LOC_00173: ADDI, a1, s0, 0
+000131dc           : LW s0, 24(sp)
+000131e0           : LW ra, 28(sp)
+000131e4           : LW s2, 16(sp)
+000131e8           : LW s3, 12(sp)
+000131ec           : ADDI, a0, s1, 0
+000131f0           : LW s1, 20(sp)
+000131f4           : ADDI, sp, sp, 32
+000131f8           : JAL, zero, _free_r
+000131fc  LOC_00172: LW ra, 28(sp)
+00013200           : LW s0, 24(sp)
+00013204           : LW s1, 20(sp)
+00013208           : LW s2, 16(sp)
+0001320c           : LW s3, 12(sp)
+00013210           : ADDI, sp, sp, 32
+00013214           : JALR zero, 0(ra)
+00013218  LOC_00169: JALR zero, 0(ra)
+0001321c   _fstat_r: ADDI, sp, sp, -16
+00013220           : ADDI, a4, a1, 0
+00013224           : SW, s0, 8(sp)
+00013228           : SW, s1, 4(sp)
+0001322c           : ADDI, s0, a0, 0
+00013230           : ADDI, a1, a2, 0
+00013234           : ADDI, a0, a4, 0
+00013238           : SW, ra, 12(sp)
+0001323c           : SW, zero, 80(gp)
+00013240           : JAL, ra, _fstat
+00013244           : ADDI, a5, zero, -1
+00013248           : BEQ, a0, a5, LOC_00174
+0001324c  LOC_00175: LW ra, 12(sp)
+00013250           : LW s0, 8(sp)
+00013254           : LW s1, 4(sp)
+00013258           : ADDI, sp, sp, 16
+0001325c           : JALR zero, 0(ra)
+00013260  LOC_00174: LW a5, 80(gp)
+00013264           : BEQ, a5, zero, LOC_00175
+00013268           : LW ra, 12(sp)
+0001326c           : SW, a5, 0(s0)
+00013270           : LW s0, 8(sp)
+00013274           : LW s1, 4(sp)
+00013278           : ADDI, sp, sp, 16
+0001327c           : JALR zero, 0(ra)
+00013280  _isatty_r: ADDI, sp, sp, -16
+00013284           : SW, s0, 8(sp)
+00013288           : SW, s1, 4(sp)
+0001328c           : ADDI, s0, a0, 0
+00013290           : ADDI, a0, a1, 0
+00013294           : SW, ra, 12(sp)
+00013298           : SW, zero, 80(gp)
+0001329c           : JAL, ra, _isatty
+000132a0           : ADDI, a5, zero, -1
+000132a4           : BEQ, a0, a5, LOC_00176
+000132a8  LOC_00177: LW ra, 12(sp)
+000132ac           : LW s0, 8(sp)
+000132b0           : LW s1, 4(sp)
+000132b4           : ADDI, sp, sp, 16
+000132b8           : JALR zero, 0(ra)
+000132bc  LOC_00176: LW a5, 80(gp)
+000132c0           : BEQ, a5, zero, LOC_00177
+000132c4           : LW ra, 12(sp)
+000132c8           : SW, a5, 0(s0)
+000132cc           : LW s0, 8(sp)
+000132d0           : LW s1, 4(sp)
+000132d4           : ADDI, sp, sp, 16
+000132d8           : JALR zero, 0(ra)
+000132dc     _close: ADDI, sp, sp, -16
+000132e0           : SW, ra, 12(sp)
+000132e4           : SW, s0, 8(sp)
+000132e8           : ADDI, a1, zero, 0
+000132ec           : ADDI, a2, zero, 0
+000132f0           : ADDI, a3, zero, 0
+000132f4           : ADDI, a4, zero, 0
+000132f8           : ADDI, a5, zero, 0
+000132fc           : ADDI, a7, zero, 57
+00013300           : ECALL
+00013304           : ADDI, s0, a0, 0
+00013308           : BLT, a0, zero, LOC_00178
+0001330c  LOC_00179: LW ra, 12(sp)
+00013310           : ADDI, a0, s0, 0
+00013314           : LW s0, 8(sp)
+00013318           : ADDI, sp, sp, 16
+0001331c           : JALR zero, 0(ra)
+00013320  LOC_00178: SUB, s0, zero, s0
+00013324           : JAL, ra, __errno
+00013328           : SW, s0, 0(a0)
+0001332c           : ADDI, s0, zero, -1
+00013330           : JAL, zero, LOC_00179
+00013334      _exit: ADDI, a1, zero, 0
+00013338           : ADDI, a2, zero, 0
+0001333c           : ADDI, a3, zero, 0
+00013340           : ADDI, a4, zero, 0
+00013344           : ADDI, a5, zero, 0
+00013348           : ADDI, a7, zero, 93
+0001334c           : ECALL
+00013350           : BLT, a0, zero, LOC_0017a
+00013354  LOC_0017b: JAL, zero, LOC_0017b
+00013358  LOC_0017a: ADDI, sp, sp, -16
+0001335c           : SW, s0, 8(sp)
+00013360           : ADDI, s0, a0, 0
+00013364           : SW, ra, 12(sp)
+00013368           : SUB, s0, zero, s0
+0001336c           : JAL, ra, __errno
+00013370           : SW, s0, 0(a0)
+00013374  LOC_0017c: JAL, zero, LOC_0017c
+00013378     _fstat: ADDI, sp, sp, -144
+0001337c           : SW, s1, 132(sp)
+00013380           : SW, ra, 140(sp)
+00013384           : ADDI, s1, a1, 0
+00013388           : SW, s0, 136(sp)
+0001338c           : ADDI, a1, sp, 0
+00013390           : ADDI, a2, zero, 0
+00013394           : ADDI, a3, zero, 0
+00013398           : ADDI, a4, zero, 0
+0001339c           : ADDI, a5, zero, 0
+000133a0           : ADDI, a7, zero, 80
+000133a4           : ECALL
+000133a8           : ADDI, s0, a0, 0
+000133ac           : BLT, a0, zero, LOC_0017d
+000133b0  LOC_0017e: ADDI, a0, s1, 0
+000133b4           : ADDI, a1, sp, 0
+000133b8           : JAL, ra, _conv_stat
+000133bc           : LW ra, 140(sp)
+000133c0           : ADDI, a0, s0, 0
+000133c4           : LW s0, 136(sp)
+000133c8           : LW s1, 132(sp)
+000133cc           : ADDI, sp, sp, 144
+000133d0           : JALR zero, 0(ra)
+000133d4  LOC_0017d: SUB, s0, zero, s0
+000133d8           : JAL, ra, __errno
+000133dc           : SW, s0, 0(a0)
+000133e0           : ADDI, s0, zero, -1
+000133e4           : JAL, zero, LOC_0017e
+000133e8    _isatty: ADDI, sp, sp, -112
+000133ec           : ADDI, a1, sp, 8
+000133f0           : SW, ra, 108(sp)
+000133f4           : JAL, ra, _fstat
+000133f8           : ADDI, a5, zero, -1
+000133fc           : BEQ, a0, a5, LOC_0017f
+00013400           : LW a0, 12(sp)
+00013404           : LW ra, 108(sp)
+00013408           : SRLI, a0, a0, 13
+0001340c           : ANDI, a0, a0, 1
+00013410           : ADDI, sp, sp, 112
+00013414           : JALR zero, 0(ra)
+00013418  LOC_0017f: LW ra, 108(sp)
+0001341c           : ADDI, a0, zero, 0
+00013420           : ADDI, sp, sp, 112
+00013424           : JALR zero, 0(ra)
+00013428     _lseek: ADDI, sp, sp, -16
+0001342c           : SW, ra, 12(sp)
+00013430           : SW, s0, 8(sp)
+00013434           : ADDI, a3, zero, 0
+00013438           : ADDI, a4, zero, 0
+0001343c           : ADDI, a5, zero, 0
+00013440           : ADDI, a7, zero, 62
+00013444           : ECALL
+00013448           : ADDI, s0, a0, 0
+0001344c           : BLT, a0, zero, LOC_00180
+00013450  LOC_00181: LW ra, 12(sp)
+00013454           : ADDI, a0, s0, 0
+00013458           : LW s0, 8(sp)
+0001345c           : ADDI, sp, sp, 16
+00013460           : JALR zero, 0(ra)
+00013464  LOC_00180: SUB, s0, zero, s0
+00013468           : JAL, ra, __errno
+0001346c           : SW, s0, 0(a0)
+00013470           : ADDI, s0, zero, -1
+00013474           : JAL, zero, LOC_00181
+00013478      _read: ADDI, sp, sp, -16
+0001347c           : SW, ra, 12(sp)
+00013480           : SW, s0, 8(sp)
+00013484           : ADDI, a3, zero, 0
+00013488           : ADDI, a4, zero, 0
+0001348c           : ADDI, a5, zero, 0
+00013490           : ADDI, a7, zero, 63
+00013494           : ECALL
+00013498           : ADDI, s0, a0, 0
+0001349c           : BLT, a0, zero, LOC_00182
+000134a0  LOC_00183: LW ra, 12(sp)
+000134a4           : ADDI, a0, s0, 0
+000134a8           : LW s0, 8(sp)
+000134ac           : ADDI, sp, sp, 16
+000134b0           : JALR zero, 0(ra)
+000134b4  LOC_00182: SUB, s0, zero, s0
+000134b8           : JAL, ra, __errno
+000134bc           : SW, s0, 0(a0)
+000134c0           : ADDI, s0, zero, -1
+000134c4           : JAL, zero, LOC_00183
+000134c8      _sbrk: LW a5, 84(gp)
+000134cc           : ADDI, sp, sp, -16
+000134d0           : SW, ra, 12(sp)
+000134d4           : ADDI, a6, a0, 0
+000134d8           : BNE, a5, zero, LOC_00184
+000134dc           : ADDI, a0, zero, 0
+000134e0           : ADDI, a1, zero, 0
+000134e4           : ADDI, a2, zero, 0
+000134e8           : ADDI, a3, zero, 0
+000134ec           : ADDI, a4, zero, 0
+000134f0           : ADDI, a7, zero, 214
+000134f4           : ECALL
+000134f8           : ADDI, a4, zero, -1
+000134fc           : ADDI, a5, a0, 0
+00013500           : BEQ, a0, a4, LOC_00185
+00013504           : SW, a0, 84(gp)
+00013508  LOC_00184: ADD, a0, a6, a5
+0001350c           : ADDI, a1, zero, 0
+00013510           : ADDI, a2, zero, 0
+00013514           : ADDI, a3, zero, 0
+00013518           : ADDI, a4, zero, 0
+0001351c           : ADDI, a5, zero, 0
+00013520           : ADDI, a7, zero, 214
+00013524           : ECALL
+00013528           : LW a5, 84(gp)
+0001352c           : ADD, a6, a6, a5
+00013530           : BNE, a0, a6, LOC_00185
+00013534           : LW ra, 12(sp)
+00013538           : SW, a0, 84(gp)
+0001353c           : ADDI, a0, a5, 0
+00013540           : ADDI, sp, sp, 16
+00013544           : JALR zero, 0(ra)
+00013548  LOC_00185: JAL, ra, __errno
+0001354c           : LW ra, 12(sp)
+00013550           : ADDI, a5, zero, 12
+00013554           : SW, a5, 0(a0)
+00013558           : ADDI, a0, zero, -1
+0001355c           : ADDI, sp, sp, 16
+00013560           : JALR zero, 0(ra)
+00013564     _write: ADDI, sp, sp, -16
+00013568           : SW, ra, 12(sp)
+0001356c           : SW, s0, 8(sp)
+00013570           : ADDI, a3, zero, 0
+00013574           : ADDI, a4, zero, 0
+00013578           : ADDI, a5, zero, 0
+0001357c           : ADDI, a7, zero, 64
+00013580           : ECALL
+00013584           : ADDI, s0, a0, 0
+00013588           : BLT, a0, zero, LOC_00186
+0001358c  LOC_00187: LW ra, 12(sp)
+00013590           : ADDI, a0, s0, 0
+00013594           : LW s0, 8(sp)
+00013598           : ADDI, sp, sp, 16
+0001359c           : JALR zero, 0(ra)
+000135a0  LOC_00186: SUB, s0, zero, s0
+000135a4           : JAL, ra, __errno
+000135a8           : SW, s0, 0(a0)
+000135ac           : ADDI, s0, zero, -1
+000135b0           : JAL, zero, LOC_00187
+000135b4 _conv_stat: ADDI, sp, sp, -16
+000135b8           : LW t2, 20(a1)
+000135bc           : LW t0, 24(a1)
+000135c0           : LW t6, 28(a1)
+000135c4           : LW t5, 32(a1)
+000135c8           : LW t4, 48(a1)
+000135cc           : LW t3, 64(a1)
+000135d0           : LW t1, 56(a1)
+000135d4           : LW a6, 72(a1)
+000135d8           : LW a7, 76(a1)
+000135dc           : LW a2, 88(a1)
+000135e0           : SW, s0, 12(sp)
+000135e4           : SW, s1, 8(sp)
+000135e8           : LW s0, 16(a1)
+000135ec           : LW s1, 8(a1)
+000135f0           : SW, s2, 4(sp)
+000135f4           : LW s2, 0(a1)
+000135f8           : LW a3, 92(a1)
+000135fc           : LW a4, 104(a1)
+00013600           : LW a5, 108(a1)
+00013604           : SH, s2, 0(a0)
+00013608           : SH, s1, 2(a0)
+0001360c           : SW, s0, 4(a0)
+00013610           : SH, t2, 8(a0)
+00013614           : SH, t0, 10(a0)
+00013618           : SH, t6, 12(a0)
+0001361c           : SH, t5, 14(a0)
+00013620           : SW, t4, 16(a0)
+00013624           : SW, t3, 76(a0)
+00013628           : SW, t1, 72(a0)
+0001362c           : SW, a6, 24(a0)
+00013630           : SW, a7, 28(a0)
+00013634           : SW, a2, 40(a0)
+00013638           : SW, a3, 44(a0)
+0001363c           : LW s0, 12(sp)
+00013640           : SW, a4, 56(a0)
+00013644           : SW, a5, 60(a0)
+00013648           : LW s1, 8(sp)
+0001364c           : LW s2, 4(sp)
+00013650           : ADDI, sp, sp, 16
+00013654           : JALR zero, 0(ra)
+00013658    __errno: LW a0, 56(gp)
+0001365c           : JALR zero, 0(ra)
+
+.symtab
+Symbol Value              Size Type     Bind     Vis       Index Name
+[   0] 0x0                   0 NOTYPE   LOCAL    DEFAULT   UNDEF 
+[   1] 0x10074               0 SECTION  LOCAL    DEFAULT       1 
+[   2] 0x13660               0 SECTION  LOCAL    DEFAULT       2 
+[   3] 0x14674               0 SECTION  LOCAL    DEFAULT       3 
+[   4] 0x14678               0 SECTION  LOCAL    DEFAULT       4 
+[   5] 0x14680               0 SECTION  LOCAL    DEFAULT       5 
+[   6] 0x14688               0 SECTION  LOCAL    DEFAULT       6 
+[   7] 0x14EB8               0 SECTION  LOCAL    DEFAULT       7 
+[   8] 0x14ECC               0 SECTION  LOCAL    DEFAULT       8 
+[   9] 0x14EE0               0 SECTION  LOCAL    DEFAULT       9 
+[  10] 0x0                   0 SECTION  LOCAL    DEFAULT      10 
+[  11] 0x0                   0 SECTION  LOCAL    DEFAULT      11 
+[  12] 0x0                   0 FILE     LOCAL    DEFAULT     ABS __call_atexit.c
+[  13] 0x10074              24 FUNC     LOCAL    DEFAULT       1 register_fini
+[  14] 0x0                   0 FILE     LOCAL    DEFAULT     ABS crtstuff.c
+[  15] 0x14674               0 OBJECT   LOCAL    DEFAULT       3 
+[  16] 0x100D8               0 FUNC     LOCAL    DEFAULT       1 __do_global_dtors_aux
+[  17] 0x14EE0               1 OBJECT   LOCAL    DEFAULT       9 completed.1
+[  18] 0x14680               0 OBJECT   LOCAL    DEFAULT       5 __do_global_dtors_aux_fini_array_entry
+[  19] 0x10124               0 FUNC     LOCAL    DEFAULT       1 frame_dummy
+[  20] 0x14EE4              24 OBJECT   LOCAL    DEFAULT       9 object.0
+[  21] 0x1467C               0 OBJECT   LOCAL    DEFAULT       4 __frame_dummy_init_array_entry
+[  22] 0x0                   0 FILE     LOCAL    DEFAULT     ABS test2.c
+[  23] 0x0                   0 FILE     LOCAL    DEFAULT     ABS exit.c
+[  24] 0x0                   0 FILE     LOCAL    DEFAULT     ABS impure.c
+[  25] 0x14688            1064 OBJECT   LOCAL    DEFAULT       6 impure_data
+[  26] 0x0                   0 FILE     LOCAL    DEFAULT     ABS init.c
+[  27] 0x0                   0 FILE     LOCAL    DEFAULT     ABS puts.c
+[  28] 0x0                   0 FILE     LOCAL    DEFAULT     ABS strlen.c
+[  29] 0x0                   0 FILE     LOCAL    DEFAULT     ABS atexit.c
+[  30] 0x0                   0 FILE     LOCAL    DEFAULT     ABS findfp.c
+[  31] 0x105B8               8 FUNC     LOCAL    DEFAULT       1 __fp_lock
+[  32] 0x105CC               8 FUNC     LOCAL    DEFAULT       1 __fp_unlock
+[  33] 0x105D4             388 FUNC     LOCAL    DEFAULT       1 __sinit.part.0
+[  34] 0x0                   0 FILE     LOCAL    DEFAULT     ABS fini.c
+[  35] 0x0                   0 FILE     LOCAL    DEFAULT     ABS fvwrite.c
+[  36] 0x0                   0 FILE     LOCAL    DEFAULT     ABS fwalk.c
+[  37] 0x0                   0 FILE     LOCAL    DEFAULT     ABS mallocr.c
+[  38] 0x0                   0 FILE     LOCAL    DEFAULT     ABS memchr.c
+[  39] 0x0                   0 FILE     LOCAL    DEFAULT     ABS memcpy.c
+[  40] 0x0                   0 FILE     LOCAL    DEFAULT     ABS memmove-stub.c
+[  41] 0x0                   0 FILE     LOCAL    DEFAULT     ABS mlock.c
+[  42] 0x0                   0 FILE     LOCAL    DEFAULT     ABS mallocr.c
+[  43] 0x0                   0 FILE     LOCAL    DEFAULT     ABS sbrkr.c
+[  44] 0x0                   0 FILE     LOCAL    DEFAULT     ABS stdio.c
+[  45] 0x0                   0 FILE     LOCAL    DEFAULT     ABS writer.c
+[  46] 0x0                   0 FILE     LOCAL    DEFAULT     ABS wsetup.c
+[  47] 0x0                   0 FILE     LOCAL    DEFAULT     ABS __atexit.c
+[  48] 0x0                   0 FILE     LOCAL    DEFAULT     ABS closer.c
+[  49] 0x0                   0 FILE     LOCAL    DEFAULT     ABS fclose.c
+[  50] 0x12428             192 FUNC     LOCAL    DEFAULT       1 _fclose_r.part.0
+[  51] 0x0                   0 FILE     LOCAL    DEFAULT     ABS fflush.c
+[  52] 0x0                   0 FILE     LOCAL    DEFAULT     ABS mallocr.c
+[  53] 0x0                   0 FILE     LOCAL    DEFAULT     ABS lseekr.c
+[  54] 0x0                   0 FILE     LOCAL    DEFAULT     ABS makebuf.c
+[  55] 0x0                   0 FILE     LOCAL    DEFAULT     ABS readr.c
+[  56] 0x0                   0 FILE     LOCAL    DEFAULT     ABS reent.c
+[  57] 0x0                   0 FILE     LOCAL    DEFAULT     ABS fstatr.c
+[  58] 0x0                   0 FILE     LOCAL    DEFAULT     ABS isattyr.c
+[  59] 0x0                   0 FILE     LOCAL    DEFAULT     ABS sys_close.c
+[  60] 0x0                   0 FILE     LOCAL    DEFAULT     ABS sys_exit.c
+[  61] 0x0                   0 FILE     LOCAL    DEFAULT     ABS sys_fstat.c
+[  62] 0x0                   0 FILE     LOCAL    DEFAULT     ABS sys_isatty.c
+[  63] 0x0                   0 FILE     LOCAL    DEFAULT     ABS sys_lseek.c
+[  64] 0x0                   0 FILE     LOCAL    DEFAULT     ABS sys_read.c
+[  65] 0x0                   0 FILE     LOCAL    DEFAULT     ABS sys_sbrk.c
+[  66] 0x14EDC               4 OBJECT   LOCAL    DEFAULT       8 heap_end.0
+[  67] 0x0                   0 FILE     LOCAL    DEFAULT     ABS sys_write.c
+[  68] 0x0                   0 FILE     LOCAL    DEFAULT     ABS sys_conv_stat.c
+[  69] 0x0                   0 FILE     LOCAL    DEFAULT     ABS errno.c
+[  70] 0x0                   0 FILE     LOCAL    DEFAULT     ABS crtstuff.c
+[  71] 0x14674               0 OBJECT   LOCAL    DEFAULT       3 __FRAME_END__
+[  72] 0x0                   0 FILE     LOCAL    DEFAULT     ABS 
+[  73] 0x14684               0 NOTYPE   LOCAL    DEFAULT       5 __fini_array_end
+[  74] 0x14680               0 NOTYPE   LOCAL    DEFAULT       5 __fini_array_start
+[  75] 0x14680               0 NOTYPE   LOCAL    DEFAULT       4 __init_array_end
+[  76] 0x14678               0 NOTYPE   LOCAL    DEFAULT       4 __preinit_array_end
+[  77] 0x14678               0 NOTYPE   LOCAL    DEFAULT       4 __init_array_start
+[  78] 0x14678               0 NOTYPE   LOCAL    DEFAULT       4 __preinit_array_start
+[  79] 0x13280              92 FUNC     GLOBAL   DEFAULT       1 _isatty_r
+[  80] 0x1306C             148 FUNC     GLOBAL   DEFAULT       1 cleanup_glue
+[  81] 0x10320             204 FUNC     GLOBAL   DEFAULT       1 _puts_r
+[  82] 0x12D3C             104 FUNC     GLOBAL   DEFAULT       1 _lseek_r
+[  83] 0x14E88               0 NOTYPE   GLOBAL   DEFAULT     ABS __global_pointer$
+[  84] 0x120F4             104 FUNC     GLOBAL   DEFAULT       1 __sseek
+[  85] 0x10908              16 FUNC     GLOBAL   DEFAULT       1 __sinit
+[  86] 0x10758             108 FUNC     GLOBAL   DEFAULT       1 __sfmoreglue
+[  87] 0x11A34               4 FUNC     GLOBAL   DEFAULT       1 __malloc_unlock
+[  88] 0x11910             288 FUNC     GLOBAL   DEFAULT       1 memmove
+[  89] 0x108F8              16 FUNC     GLOBAL   DEFAULT       1 _cleanup
+[  90] 0x13658               8 FUNC     GLOBAL   DEFAULT       1 __errno
+[  91] 0x135B4             164 FUNC     GLOBAL   DEFAULT       1 _conv_stat
+[  92] 0x1321C             100 FUNC     GLOBAL   DEFAULT       1 _fstat_r
+[  93] 0x14ED8               4 OBJECT   GLOBAL   DEFAULT       8 errno
+[  94] 0x12064               8 FUNC     GLOBAL   DEFAULT       1 __seofread
+[  95] 0x14EB8               0 NOTYPE   GLOBAL   DEFAULT       7 __SDATA_BEGIN__
+[  96] 0x117F4             284 FUNC     GLOBAL   DEFAULT       1 memcpy
+[  97] 0x105C0              12 FUNC     GLOBAL   DEFAULT       1 _cleanup_r
+[  98] 0x103EC              12 FUNC     GLOBAL   DEFAULT       1 puts
+[  99] 0x13378             112 FUNC     GLOBAL   DEFAULT       1 _fstat
+[ 100] 0x14ED4               4 OBJECT   GLOBAL   DEFAULT       8 __malloc_top_pad
+[ 101] 0x14EBC               0 OBJECT   GLOBAL   HIDDEN        7 __dso_handle
+[ 102] 0x109A4            1176 FUNC     GLOBAL   DEFAULT       1 __sfvwrite_r
+[ 103] 0x11FAC              92 FUNC     GLOBAL   DEFAULT       1 _sbrk_r
+[ 104] 0x13004             104 FUNC     GLOBAL   DEFAULT       1 _read_r
+[ 105] 0x124E8             112 FUNC     GLOBAL   DEFAULT       1 _fclose_r
+[ 106] 0x12890             124 FUNC     GLOBAL   DEFAULT       1 fflush
+[ 107] 0x14ED0               4 OBJECT   GLOBAL   DEFAULT       8 __malloc_max_sbrked_mem
+[ 108] 0x133E8              64 FUNC     GLOBAL   DEFAULT       1 _isatty
+[ 109] 0x14EB8               4 OBJECT   GLOBAL   DEFAULT       7 _global_impure_ptr
+[ 110] 0x11A38            1396 FUNC     GLOBAL   DEFAULT       1 _realloc_r
+[ 111] 0x101A8             156 FUNC     GLOBAL   DEFAULT       1 __libc_init_array
+[ 112] 0x134C8             156 FUNC     GLOBAL   DEFAULT       1 _sbrk
+[ 113] 0x10928              16 FUNC     GLOBAL   DEFAULT       1 __fp_lock_all
+[ 114] 0x10948              92 FUNC     GLOBAL   DEFAULT       1 __libc_fini_array
+[ 115] 0x13100             284 FUNC     GLOBAL   DEFAULT       1 _reclaim_reent
+[ 116] 0x10918               4 FUNC     GLOBAL   DEFAULT       1 __sfp_lock_acquire
+[ 117] 0x1172C             200 FUNC     GLOBAL   DEFAULT       1 memchr
+[ 118] 0x12A3C             768 FUNC     GLOBAL   DEFAULT       1 _free_r
+[ 119] 0x10484             288 FUNC     GLOBAL   DEFAULT       1 __call_exitprocs
+[ 120] 0x14EC4               4 OBJECT   GLOBAL   DEFAULT       7 __malloc_sbrk_base
+[ 121] 0x1008C              76 FUNC     GLOBAL   DEFAULT       1 _start
+[ 122] 0x13428              80 FUNC     GLOBAL   DEFAULT       1 _lseek
+[ 123] 0x12334             152 FUNC     GLOBAL   DEFAULT       1 __register_exitproc
+[ 124] 0x14EFC              40 OBJECT   GLOBAL   DEFAULT       9 __malloc_current_mallinfo
+[ 125] 0x123CC              92 FUNC     GLOBAL   DEFAULT       1 _close_r
+[ 126] 0x121CC             360 FUNC     GLOBAL   DEFAULT       1 __swsetup_r
+[ 127] 0x107C4             308 FUNC     GLOBAL   DEFAULT       1 __sfp
+[ 128] 0x14F24               0 NOTYPE   GLOBAL   DEFAULT       9 __BSS_END__
+[ 129] 0x14AB0            1032 OBJECT   GLOBAL   DEFAULT       6 __malloc_av_
+[ 130] 0x10924               4 FUNC     GLOBAL   DEFAULT       1 __sinit_lock_release
+[ 131] 0x12008              92 FUNC     GLOBAL   DEFAULT       1 __sread
+[ 132] 0x11A30               4 FUNC     GLOBAL   DEFAULT       1 __malloc_lock
+[ 133] 0x12830              96 FUNC     GLOBAL   DEFAULT       1 _fflush_r
+[ 134] 0x14ECC               0 NOTYPE   GLOBAL   DEFAULT       8 __bss_start
+[ 135] 0x10244             220 FUNC     GLOBAL   DEFAULT       1 memset
+[ 136] 0x10144              52 FUNC     GLOBAL   DEFAULT       1 main
+[ 137] 0x14ECC               4 OBJECT   GLOBAL   DEFAULT       8 __malloc_max_total_mem
+[ 138] 0x1215C               8 FUNC     GLOBAL   DEFAULT       1 __sclose
+[ 139] 0x12558             116 FUNC     GLOBAL   DEFAULT       1 fclose
+[ 140] 0x10F94            1944 FUNC     GLOBAL   DEFAULT       1 _malloc_r
+[ 141] 0x10E3C             164 FUNC     GLOBAL   DEFAULT       1 _fwalk
+[ 142] 0x1290C             304 FUNC     GLOBAL   DEFAULT       1 _malloc_trim_r
+[ 143] 0x105A4              20 FUNC     GLOBAL   DEFAULT       1 atexit
+[ 144] 0x12164             104 FUNC     GLOBAL   DEFAULT       1 _write_r
+[ 145] 0x14EC0               4 OBJECT   GLOBAL   DEFAULT       7 _impure_ptr
+[ 146] 0x125CC             612 FUNC     GLOBAL   DEFAULT       1 __sflush_r
+[ 147] 0x10938              16 FUNC     GLOBAL   DEFAULT       1 __fp_unlock_all
+[ 148] 0x12F34             208 FUNC     GLOBAL   DEFAULT       1 __swhatbuf_r
+[ 149] 0x14688               0 NOTYPE   GLOBAL   DEFAULT       6 __DATA_BEGIN__
+[ 150] 0x13564              80 FUNC     GLOBAL   DEFAULT       1 _write
+[ 151] 0x14ECC               0 NOTYPE   GLOBAL   DEFAULT       7 _edata
+[ 152] 0x14F24               0 NOTYPE   GLOBAL   DEFAULT       9 _end
+[ 153] 0x1206C             136 FUNC     GLOBAL   DEFAULT       1 __swrite
+[ 154] 0x14EC8               4 OBJECT   GLOBAL   DEFAULT       7 __malloc_trim_threshold
+[ 155] 0x10178              48 FUNC     GLOBAL   DEFAULT       1 exit
+[ 156] 0x10EE0             180 FUNC     GLOBAL   DEFAULT       1 _fwalk_reent
+[ 157] 0x1091C               4 FUNC     GLOBAL   DEFAULT       1 __sfp_lock_release
+[ 158] 0x13478              80 FUNC     GLOBAL   DEFAULT       1 _read
+[ 159] 0x13334              68 FUNC     GLOBAL   DEFAULT       1 _exit
+[ 160] 0x12DA4             400 FUNC     GLOBAL   DEFAULT       1 __smakebuf_r
+[ 161] 0x103F8             140 FUNC     GLOBAL   DEFAULT       1 strlen
+[ 162] 0x132DC              88 FUNC     GLOBAL   DEFAULT       1 _close
+[ 163] 0x10920               4 FUNC     GLOBAL   DEFAULT       1 __sinit_lock_acquire
